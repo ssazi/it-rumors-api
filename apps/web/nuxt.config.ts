@@ -105,7 +105,7 @@ export default defineNuxtConfig({
         { property: 'og:image:width', content: '3800' },
         { property: 'og:image:height', content: '1900' },
         { property: 'og:site_name', content: APP_DESCRIPTION },
-        { property: 'twitter:site', content: '@fang' },
+        { property: 'twitter:site', content: '' },
         { property: 'twitter:card', content: 'summary_large_image' }
       ]
     }

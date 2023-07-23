@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { APP_NAME } from '~/constants'
+
 const router = useRouter()
 const back = ref<any>('')
 
@@ -14,7 +16,7 @@ router.afterEach(() => {
   <div flex justify-between>
     <NuxtLink to="/" flex items-end gap-4 px-5 py2 text-2xl focus-visible:ring="2 current">
       <div hidden xl:block>
-        番组 <sup mt-1 text-sm italic text-secondary>beta</sup>
+        {{ APP_NAME }} <sup mt-1 text-sm italic text-secondary>beta</sup>
       </div>
     </NuxtLink>
     <div

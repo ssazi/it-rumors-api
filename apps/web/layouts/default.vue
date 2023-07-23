@@ -13,7 +13,7 @@ const menu = [
   { name: '最新', icon: 'i-ri-loader-3-line', path: '/new' },
   { name: '热门', icon: 'i-ri:fire-line', path: '/hot' },
   { name: '关注', icon: 'i-ri-user-follow-line', path: '/follow' },
-  { name: '番组', icon: 'i-ri:tv-line', path: '/subject' },
+  { name: '产品', icon: 'i-carbon:integration', path: '/product' },
   { name: '话题', icon: 'i-ri:hashtag', path: '/topic' },
   { name: '喜欢', icon: 'i-ri:heart-3-line', path: '/favorites' },
   { name: '书签', icon: 'i-ri-bookmark-line', path: '/bookmarks' },

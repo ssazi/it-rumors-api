@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { APP_NAME } from '~/constants'
+
 definePageMeta({
   name: 'subject',
   key: route => route.fullPath
@@ -9,7 +11,7 @@ const id = $(computedEager(() => route.params.id as string))
 await subject.getSubject(id)
 const { subjectData: data } = subject
 useHead({
-  title: () => `${data?.name} | 番组`
+  title: () => `${data?.name} | ${APP_NAME}`
 })
 </script>
 

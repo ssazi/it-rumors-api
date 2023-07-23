@@ -34,7 +34,7 @@ useHead({
               width="80"
               height="80"
               format="webp"
-              :src="data?.avatar || DEFAULT_AVATART"
+              :src="data?.avatar_path?.file_path || DEFAULT_AVATART"
               :alt="data?.nickname"
               mr-4 h-20 w-20 rounded-full object-cover
             />

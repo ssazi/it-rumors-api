@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { APP_NAME } from '~/constants'
+
 const el = ref<HTMLElement>()
 const feed = useFeedStore()
 await feed.list({ current: 1 })
 const { items, update, state, endAnchor, error, onLike } = usePaginator(feed.feedList)
 console.log(state.value, 'state')
 useHead({
-  title: () => '番组'
+  title: () => APP_NAME
 })
 </script>
 
