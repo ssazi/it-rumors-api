@@ -1,7 +1,6 @@
 ## 简介
 
-@itrumor/api
-## 开发准备
+## @itrumor/api 开发准备
 - 安装 `PostgreSQL`
 - 安装 `redis`
 - 本地配置需`config.local.ts` 和 生产需配置 `config.prod.ts` 配置 `config.default.ts` 里面没有配置的
