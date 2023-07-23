@@ -1,0 +1,10 @@
+{
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false
+  },
+  "unocss.root": ["apps/web", "apps/newtab"],
+  "nuxtr.monorepoMode.DirectoryName": "apps/web"
+}

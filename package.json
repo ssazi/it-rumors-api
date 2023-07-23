@@ -1,0 +1,37 @@
+{
+  "name": "itrumor",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.6.5",
+  "scripts": {
+    "start": "pnpm web dev",
+    "start:admin": "pnpm admin dev",
+    "start:api": "pnpm api dev",
+    "start:debug": "pnpm api debug",
+    "check": "pnpm api check",
+    "web": "pnpm --filter=@itrumor/web",
+    "admin": "pnpm --filter=@itrumor/admin",
+    "api": "pnpm --filter=@itrumor/api",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "postinstall": "npx simple-git-hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.39.8",
+    "@types/md5": "^2.3.2",
+    "@types/node": "^20.4.4",
+    "@unocss/eslint-config": "^0.53.6",
+    "dayjs": "^1.11.9",
+    "eslint": "^8.45.0",
+    "lint-staged": "^13.2.3",
+    "md5": "^2.3.0",
+    "simple-git-hooks": "^2.8.1",
+    "typescript": "^5.1.6"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

@@ -1,0 +1,148 @@
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import { LoginForm, ProFormCheckbox, ProFormText } from '@ant-design/pro-components'
+import { Helmet, history, useModel } from '@umijs/max'
+import { Alert, message } from 'antd'
+import md5 from 'md5'
+import React, { useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
+import { useEmotionCss } from '@ant-design/use-emotion-css'
+import Settings from '../../../../config/defaultSettings'
+import { login } from '@/services'
+import Footer from '@/components/Footer'
+
+const LoginMessage: React.FC<{
+  content: string
+}> = ({ content }) => (
+  <Alert
+    message={content}
+    showIcon
+    style={{
+      marginBottom: 24
+    }}
+    type='error' />
+)
+
+const Login: React.FC = () => {
+  const [userLoginState, setUserLoginState] = useState<API.LoginResult>({})
+  const { initialState, setInitialState } = useModel('@@initialState')
+  const containerClassName = useEmotionCss(() => {
+    return {
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100vh',
+      overflow: 'auto',
+      backgroundImage:
+        'url(\'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/V-_oS6r-i7wAAAAAAAAAAAAAFl94AQBr\')',
+      backgroundSize: '100% 100%'
+    }
+  })
+  const fetchUserInfo = async () => {
+    const userInfo = await initialState?.fetchUserInfo?.()
+    if (userInfo) {
+      flushSync(() => {
+        setInitialState(s => ({
+          ...s,
+          currentUser: userInfo
+        }))
+      })
+      /** 此方法会跳转到 redirect 参数所在的位置 */
+      if (!history)
+        return
+      const urlParams = new URL(window.location.href).searchParams
+      history.push(urlParams.get('redirect') || '/')
+    }
+  }
+
+  useEffect(() => {
+    fetchUserInfo()
+  }, [])
+
+  const handleSubmit = async (values: API.LoginParams) => {
+    try {
+      // 登录
+      const res = await login({ ...values, password: md5(values.password!), manager: 1 })
+      if (res.status === 200) {
+        message.success('登录成功！')
+        localStorage.token = res?.data
+        await fetchUserInfo()
+        return
+      }
+      setUserLoginState(res)
+    }
+    catch (error) {
+      console.log(error, 'error')
+      message.error('登录失败，请重试！')
+    }
+  }
+
+  const { status } = userLoginState
+  return (
+    <div className={containerClassName}>
+      <Helmet>
+        <title>
+          登录页 - {Settings.title}
+        </title>
+      </Helmet>
+      <div style={{
+        flex: '1',
+        padding: '32px 0'
+      }}>
+        <LoginForm
+          // logo={<img alt="logo" src="/logo.svg" />}
+          initialValues={{
+            autoLogin: true
+          }}
+          onFinish={async values => {
+            await handleSubmit(values as API.LoginParams)
+          }}
+          subTitle='IT传闻'
+          title='🔖 🌐 🏘️'>
+          {(status && status !== 200) ? <LoginMessage content='错误的用户名和密码' /> : null}
+          <ProFormText
+            fieldProps={{
+              size: 'large',
+              prefix: <UserOutlined />
+            }}
+            name='username'
+            placeholder='用户名'
+            rules={[
+              {
+                required: true,
+                message: '用户名是必填项！'
+              }
+            ]} />
+          <ProFormText.Password
+            fieldProps={{
+              size: 'large',
+              prefix: <LockOutlined />
+            }}
+            name='password'
+            placeholder='密码'
+            rules={[
+              {
+                required: true,
+                message: '密码是必填项！'
+              }
+            ]} />
+          <div
+            style={{
+              marginBottom: 24
+            }}>
+            <ProFormCheckbox name='autoLogin' noStyle>
+              自动登录
+            </ProFormCheckbox>
+            <a
+              style={{
+                float: 'right'
+              }}>
+              忘记密码 ?
+            </a>
+          </div>
+        </LoginForm>
+      </div>
+      <Footer />
+    </div>
+  )
+}
+
+export default Login

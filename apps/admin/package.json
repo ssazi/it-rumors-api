@@ -1,0 +1,50 @@
+{
+  "name": "@itrumor/admin",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "analyze": "cross-env ANALYZE=1 max build",
+    "build": "max build",
+    "deploy": "npm run build && npm run gh-pages",
+    "dev": "npm run start:dev",
+    "gh-pages": "gh-pages -d dist",
+    "i18n-remove": "pro i18n-remove --locale=zh-CN --write",
+    "postinstall": "max setup",
+    "openapi": "max openapi",
+    "prettier": "prettier -c --write \"src/**/*\"",
+    "serve": "umi-serve",
+    "start": "cross-env max dev",
+    "start:dev": "cross-env REACT_APP_ENV=dev MOCK=none max dev",
+    "start:no-mock": "cross-env MOCK=none max dev",
+    "start:pre": "cross-env REACT_APP_ENV=pre max dev"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.1.4",
+    "@ant-design/pro-components": "^2.6.7",
+    "@ant-design/use-emotion-css": "^1.0.4",
+    "@itrumor/types": "workspace:*",
+    "antd": "^5.7.2",
+    "classnames": "^2.3.2",
+    "cos-js-sdk-v5": "^1.4.18",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io-client": "^4.7.1",
+    "spark-md5": "^3.0.2"
+  },
+  "devDependencies": {
+    "@ant-design/pro-cli": "^3.1.0",
+    "@types/lodash": "^4.14.195",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@types/spark-md5": "^3.0.2",
+    "@umijs/max": "^4.0.72",
+    "cross-env": "^7.0.3",
+    "gh-pages": "^5.0.0",
+    "typescript-plugin-css-modules": "^5.0.1",
+    "umi-presets-pro": "^2.0.3"
+  }
+}

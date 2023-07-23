@@ -1,0 +1,56 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "DXh19880611",
+    "database": "itrumor",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "timezone": "+08:00",
+    "define": {
+      "charset": "utf8",
+      "timestamps": true,
+      "freezeTableName": true,
+      "underscored": true,
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      }
+    }
+  },
+  "test": {
+    "username": "postgres",
+    "password": "DXh19880611",
+    "database": "itrumor",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "timezone": "+08:00",
+    "define": {
+      "charset": "utf8",
+      "timestamps": true,
+      "freezeTableName": true,
+      "underscored": true,
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      }
+    }
+  },
+  "production": {
+    "username": "itrumor",
+    "password": "aRsHANfYJh72",
+    "database": "itrumor",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "timezone": "+08:00",
+    "define": {
+      "charset": "utf8",
+      "timestamps": true,
+      "freezeTableName": true,
+      "underscored": true,
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      }
+    }
+  }
+}

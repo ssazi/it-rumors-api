@@ -1,0 +1,70 @@
+# admin
+# dependencies
+**/node_modules
+/src/utils/request-temp.js
+_roadhog-api-doc
+
+# production
+dist
+
+# misc
+.DS_Store
+npm-debug.log*
+yarn-error.log
+
+/coverage
+.idea
+*bak
+
+
+# visual studio code
+.history
+*.log
+functions/*
+.temp/**
+
+# umi
+.umi
+.umi-production
+.umi-test
+
+# screenshot
+screenshot
+.firebase
+.eslintcache
+
+build
+
+# api
+**/logs
+**/run
+*.swp
+*-lock.json
+*.lock
+
+# **/typings/app
+# **/typings/config
+# **/config/env*
+
+config.prod.ts
+config.local.ts
+
+# web
+*.log
+.output
+.nuxt
+.env
+
+# newtab
+.vite-ssg-dist
+.vite-ssg-temp
+*.crx
+*.local
+*.log
+*.pem
+*.xpi
+*.zip
+dist-ssr
+extension/manifest.json
+src/auto-imports.d.ts
+src/components.d.ts

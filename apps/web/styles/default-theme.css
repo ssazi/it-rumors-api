@@ -1,0 +1,13 @@
+:root {
+  --theme-color-name: #1d9bf0;
+  --c-primary: rgb(var(--rgb-primary));
+  --c-primary-active: #1a8cd8;
+  --c-primary-light: #1d9bf080;
+  --c-primary-fade: #1d9bf01a;
+  --rgb-primary: 29, 155, 240;
+  --c-dark-primary: rgb(var(--rgb-dark-primary));
+  --c-dark-primary-active: #1a8cd8;
+  --c-dark-primary-light: #1d9bf080;
+  --c-dark-primary-fade: #1d9bf01a;
+  --rgb-dark-primary: 29, 155, 240;
+}
