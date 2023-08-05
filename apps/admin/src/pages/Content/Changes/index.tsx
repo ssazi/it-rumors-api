@@ -1,4 +1,4 @@
-import type { IChanges } from '@itrumor/types'
+import type { IChanges } from '@itrumors/types'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
 import {
   FooterToolbar,

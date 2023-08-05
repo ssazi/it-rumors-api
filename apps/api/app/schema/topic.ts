@@ -1,4 +1,4 @@
-import type { ITopic } from '@itrumor/types'
+import type { ITopic } from '@itrumors/types'
 import type { Application, Context } from 'egg'
 import type { BaseModel, BaseModelStatic } from '../typings'
 

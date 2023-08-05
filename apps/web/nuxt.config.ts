@@ -52,7 +52,7 @@ export default defineNuxtConfig({
     public: {
       privacyPolicyUrl: '',
       translateApi: '',
-      defaultServer: 'itrumor.com',
+      defaultServer: 'itrumors.com',
       singleInstance: false
     },
     tmdb: {

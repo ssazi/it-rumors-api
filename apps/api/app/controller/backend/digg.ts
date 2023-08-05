@@ -1,5 +1,5 @@
 import { Controller } from 'egg'
-import { sidName } from '@itrumor/types'
+import { sidName } from '@itrumors/types'
 
 export default class Digg extends Controller {
   public async add() {

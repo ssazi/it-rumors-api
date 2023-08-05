@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { ICompany, IListResponse } from '@itrumor/types'
+import type { ICompany, IListResponse } from '@itrumors/types'
 
 /** 添加公司 POST /backend/company/add */
 export async function companyAdd(body: ICompany, options?: Record<string, any>) {

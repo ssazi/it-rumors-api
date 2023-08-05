@@ -1,4 +1,4 @@
-import type { IUser } from '@itrumor/types'
+import type { IUser } from '@itrumors/types'
 
 export function getAccountRoute(account: IUser) {
   return useRouter().resolve({

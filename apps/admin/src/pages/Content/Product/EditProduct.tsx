@@ -1,4 +1,4 @@
-import type { IProduct } from '@itrumor/types'
+import type { IProduct } from '@itrumors/types'
 import type { ActionType, ProFormInstance } from '@ant-design/pro-components'
 import {
   ModalForm,
@@ -14,7 +14,7 @@ import {
 import { Cascader, Form, message } from 'antd'
 import type { FC } from 'react'
 import { useRef } from 'react'
-import { statusType } from '@itrumor/types'
+import { statusType } from '@itrumors/types'
 import { useCategory } from '@/utils/hooks/useUtil'
 import { productAdd, productDetail, productName } from '@/services'
 

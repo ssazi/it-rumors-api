@@ -1,4 +1,4 @@
-import type { ITopic } from '@itrumor/types'
+import type { ITopic } from '@itrumors/types'
 import { useCallback, useState } from 'react'
 import { topicList } from '@/services'
 

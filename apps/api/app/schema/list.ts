@@ -1,4 +1,4 @@
-import type { IList } from '@itrumor/types'
+import type { IList } from '@itrumors/types'
 import type { Application, Context } from 'egg'
 import type { BaseModel, BaseModelStatic } from '../typings'
 

@@ -1,5 +1,5 @@
 import type { Application, Context } from 'egg'
-import type { IProduct } from '@itrumor/types'
+import type { IProduct } from '@itrumors/types'
 import type { BaseModel, BaseModelStatic } from '../typings'
 
 export interface ProductType extends BaseModel, IProduct {}

@@ -1,6 +1,6 @@
 # IT传闻
 
-## @itrumor/api 环境配置和开发调试
+## @itrumors/api 环境配置和开发调试
 
 ### 配置环境
 - 安装 `PostgreSQL`

@@ -124,14 +124,14 @@ export default (appInfo: EggAppInfo) => {
 
   config.site = {
     title: 'IT传闻',
-    host: 'https://itrumor.com'
+    host: 'https://itrumors.com'
   }
 
   // add your user config here
   const userConfig = {
     base: {
       redis: {
-        prefix: 'itrumor',
+        prefix: 'itrumors',
         expire: 7 * 24 * 60 * 60,
         mode: 'EX'
       }

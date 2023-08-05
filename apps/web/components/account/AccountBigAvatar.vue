@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IUser } from '@itrumor/types'
+import type { IUser } from '@itrumors/types'
 
 // Avatar with a background base achieving a 3px border to be used in status cards
 // The border is used for Avatar on Avatar for reblogs and connecting replies

@@ -1,4 +1,4 @@
-import { type IPin, modelType } from '@itrumor/types'
+import { type IPin, modelType } from '@itrumors/types'
 import { PlusOutlined } from '@ant-design/icons'
 import type {
   ActionType,

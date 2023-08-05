@@ -1,4 +1,4 @@
-import type { ITag } from '@itrumor/types'
+import type { ITag } from '@itrumors/types'
 import type { Application, Context } from 'egg'
 import type { BaseModel, BaseModelStatic } from '../typings'
 

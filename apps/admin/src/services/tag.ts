@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { IListResponse, ITag } from '@itrumor/types'
+import type { IListResponse, ITag } from '@itrumors/types'
 
 /** 添加标签 POST /backend/tag/add */
 export async function tagAdd(body: ITag, options?: Record<string, any>) {

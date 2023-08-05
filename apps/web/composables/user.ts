@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Ref } from 'vue'
-import type { IUser } from '@itrumor/types'
+import type { IUser } from '@itrumors/types'
 import { STORAGE_KEY_TOKEN, STORAGE_KEY_USERS } from '~~/constants'
 
 function initializeUsers(): Ref<IUser> {

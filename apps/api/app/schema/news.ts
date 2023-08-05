@@ -1,4 +1,4 @@
-import type { INews } from '@itrumor/types'
+import type { INews } from '@itrumors/types'
 import type { Application, Context } from 'egg'
 import type { BaseModel, BaseModelStatic } from '../typings'
 

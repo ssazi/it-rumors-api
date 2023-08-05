@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "DXh19880611",
-    "database": "itrumor",
+    "database": "itrumors",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres",
@@ -20,7 +20,7 @@
   "test": {
     "username": "postgres",
     "password": "DXh19880611",
-    "database": "itrumor",
+    "database": "itrumors",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres",
@@ -36,9 +36,9 @@
     }
   },
   "production": {
-    "username": "itrumor",
+    "username": "itrumors",
     "password": "aRsHANfYJh72",
-    "database": "itrumor",
+    "database": "itrumors",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres",

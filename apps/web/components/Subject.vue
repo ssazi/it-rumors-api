@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ISubject } from '@itrumor/types'
+import type { ISubject } from '@itrumors/types'
 
 const { subject } = defineProps<{ subject: ISubject }>()
 </script>

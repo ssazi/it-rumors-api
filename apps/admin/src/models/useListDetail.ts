@@ -1,4 +1,4 @@
-import type { IList } from '@itrumor/types'
+import type { IList } from '@itrumors/types'
 import { useCallback, useState } from 'react'
 import { listDeatil } from '@/services'
 

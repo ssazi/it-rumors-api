@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IFeed } from '@itrumor/types'
+import type { IFeed } from '@itrumors/types'
 
 const { data, action } = defineProps<{ data: IFeed; action: any }>()
 </script>

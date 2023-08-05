@@ -1,4 +1,4 @@
-import type { ISetting } from '@itrumor/types'
+import type { ISetting } from '@itrumors/types'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
 import { EditableProTable, PageContainer } from '@ant-design/pro-components'
 import { useModel } from '@umijs/max'

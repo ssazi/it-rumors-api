@@ -1,11 +1,11 @@
-import type { IComments } from '@itrumor/types'
+import type { IComments } from '@itrumors/types'
 import { PlusOutlined } from '@ant-design/icons'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
 import { FooterToolbar, ModalForm, PageContainer, ProFormSelect, ProFormText, ProFormTextArea, ProTable } from '@ant-design/pro-components'
 import { Button, Popconfirm, Tooltip, message } from 'antd'
 import type { FC } from 'react'
 import { useRef, useState } from 'react'
-import { modelType, statusType } from '@itrumor/types'
+import { modelType, statusType } from '@itrumors/types'
 import { commentAdd, commentList } from '@/services'
 
 const Comment: FC = () => {

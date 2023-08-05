@@ -1,4 +1,4 @@
-import type { IDigg } from '@itrumor/types'
+import type { IDigg } from '@itrumors/types'
 import type { Application, Context } from 'egg'
 import type { BaseModel, BaseModelStatic } from '../typings'
 

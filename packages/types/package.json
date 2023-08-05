@@ -1,5 +1,5 @@
 {
-  "name": "@itrumor/types",
+  "name": "@itrumors/types",
   "version": "0.0.0",
   "private": true,
   "main": "index.ts",

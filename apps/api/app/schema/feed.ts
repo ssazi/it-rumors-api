@@ -1,4 +1,4 @@
-import type { IFeed } from '@itrumor/types'
+import type { IFeed } from '@itrumors/types'
 import type { Application, Context } from 'egg'
 import type { BaseModel, BaseModelStatic } from '../typings'
 

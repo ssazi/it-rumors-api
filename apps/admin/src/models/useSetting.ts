@@ -1,4 +1,4 @@
-import type { ISetting } from '@itrumor/types'
+import type { ISetting } from '@itrumors/types'
 import { useCallback, useState } from 'react'
 import { settingList } from '@/services'
 

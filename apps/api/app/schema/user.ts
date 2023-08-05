@@ -1,4 +1,4 @@
-import type { IUser } from '@itrumor/types'
+import type { IUser } from '@itrumors/types'
 import type { Application, Context } from 'egg'
 import type { BaseModel, BaseModelStatic } from '../typings'
 

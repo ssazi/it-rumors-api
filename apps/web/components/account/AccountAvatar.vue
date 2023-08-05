@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IUser } from '@itrumor/types'
+import type { IUser } from '@itrumors/types'
 import { DEFAULT_AVATART } from '~/constants'
 
 defineProps<{

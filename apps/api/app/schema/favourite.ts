@@ -1,4 +1,4 @@
-import type { IFavourite } from '@itrumor/types'
+import type { IFavourite } from '@itrumors/types'
 import type { Application, Context } from 'egg'
 import type { BaseModel, BaseModelStatic } from '../typings'
 

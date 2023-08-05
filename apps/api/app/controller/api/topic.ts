@@ -1,4 +1,4 @@
-import { modelName } from '@itrumor/types'
+import { modelName } from '@itrumors/types'
 import { Controller } from 'egg'
 
 export default class Topic extends Controller {

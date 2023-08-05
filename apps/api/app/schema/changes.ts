@@ -1,4 +1,4 @@
-import type { IChanges } from '@itrumor/types'
+import type { IChanges } from '@itrumors/types'
 import type { Application, Context } from 'egg'
 import type { BaseModel, BaseModelStatic } from '../typings'
 

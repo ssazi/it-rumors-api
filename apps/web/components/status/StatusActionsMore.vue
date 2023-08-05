@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IFeed } from '@itrumor/types'
+import type { IFeed } from '@itrumors/types'
 
 const props = defineProps<{
   status: IFeed

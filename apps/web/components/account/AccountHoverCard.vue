@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IUser } from '@itrumor/types'
+import type { IUser } from '@itrumors/types'
 
 const { account } = defineProps<{
   account: IUser

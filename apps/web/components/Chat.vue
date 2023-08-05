@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { modelName } from '@itrumor/types/enum'
+import { modelName } from '@itrumors/types/enum'
 import { ref } from 'vue'
 import { DEFAULT_AVATART } from '~/constants'
 

@@ -1,4 +1,4 @@
-import { feedType, modelName } from '@itrumor/types'
+import { feedType, modelName } from '@itrumors/types'
 import { Controller } from 'egg'
 
 export default class Product extends Controller {

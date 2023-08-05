@@ -1,4 +1,4 @@
-import type { IUser } from '@itrumor/types'
+import type { IUser } from '@itrumors/types'
 import { PlusOutlined } from '@ant-design/icons'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
 import { FooterToolbar, PageContainer, ProTable } from '@ant-design/pro-components'

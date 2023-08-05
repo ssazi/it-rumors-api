@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { ISubject } from '@itrumor/types'
+import type { ISubject } from '@itrumors/types'
 
 export const useSubjectStore = defineStore('subject', () => {
   const subjectData = ref<ISubject>()

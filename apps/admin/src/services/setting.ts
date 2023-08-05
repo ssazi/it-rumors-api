@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { ISetting } from '@itrumor/types'
+import type { ISetting } from '@itrumors/types'
 
 /** 配置列表 GET /backend/setting/list */
 export async function settingList(options?: Record<string, any>) {

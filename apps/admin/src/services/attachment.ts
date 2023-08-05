@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { IAttachment, IAttachmentTable, IListResponse, ISts } from '@itrumor/types'
+import type { IAttachment, IAttachmentTable, IListResponse, ISts } from '@itrumors/types'
 
 /** 异步获取临时密钥 GET /backend/sts/init */
 export async function stsInit(params?: { prefix?: string }, options?: Record<string, any>) {

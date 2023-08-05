@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { IFeed, IListResponse } from '@itrumor/types'
+import type { IFeed, IListResponse } from '@itrumors/types'
 
 /** 添加动态 POST /backend/feed/add */
 export async function feedAdd(body: IFeed, options?: Record<string, any>) {

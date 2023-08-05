@@ -6,7 +6,7 @@ import COS from 'cos-js-sdk-v5'
 import type { ReactNode } from 'react'
 import { Fragment, forwardRef, memo, useEffect, useImperativeHandle, useState } from 'react'
 import SparkMD5 from 'spark-md5'
-import type { IAttachment } from '@itrumor/types'
+import type { IAttachment } from '@itrumors/types'
 import { attachmentAdd, attachmentList, stsInit } from '@/services'
 
 export interface IUploadImage {

@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { IListResponse, IPin, IPinTable } from '@itrumor/types'
+import type { IListResponse, IPin, IPinTable } from '@itrumors/types'
 
 /** 添加动态 POST /backend/pin/add */
 export async function pinAdd(body: IPin, options?: Record<string, any>) {

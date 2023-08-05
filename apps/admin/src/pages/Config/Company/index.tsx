@@ -1,4 +1,4 @@
-import type { IAttachment, ICompany } from '@itrumor/types'
+import type { IAttachment, ICompany } from '@itrumors/types'
 import { PlusOutlined } from '@ant-design/icons'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
 import {
@@ -15,7 +15,7 @@ import type { FormInstance } from 'antd'
 import { Button, Popconfirm, Popover, message } from 'antd'
 import type { FC } from 'react'
 import { useRef, useState } from 'react'
-import { modelName } from '@itrumor/types'
+import { modelName } from '@itrumors/types'
 import UploadImage from '@/components/Upload'
 import { companyAdd, companyDelete, companyList } from '@/services'
 

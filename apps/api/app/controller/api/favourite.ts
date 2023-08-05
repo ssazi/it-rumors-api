@@ -1,4 +1,4 @@
-import { feedTypeBig, modelEnName, modelName } from '@itrumor/types'
+import { feedTypeBig, modelEnName, modelName } from '@itrumors/types'
 import { Controller } from 'egg'
 
 export default class Favourite extends Controller {

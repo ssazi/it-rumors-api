@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IPin } from '@itrumor/types'
+import type { IPin } from '@itrumors/types'
 
 const { pin } = defineProps<{ pin: IPin }>()
 const content = computed(() => pin?.content)

@@ -1,4 +1,4 @@
-import type { ICaptcha, IDataListResponse, IDigg, IFavourite, IFeed, IProduct, IUser, PageResult } from '@itrumor/types'
+import type { ICaptcha, IDataListResponse, IDigg, IFavourite, IFeed, IProduct, IUser, PageResult } from '@itrumors/types'
 import { STORAGE_KEY_TOKEN } from '~/constants'
 
 /**

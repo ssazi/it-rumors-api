@@ -1,4 +1,4 @@
-import { feedTypeBig, sidName } from '@itrumor/types'
+import { feedTypeBig, sidName } from '@itrumors/types'
 import { Controller } from 'egg'
 
 export default class Digg extends Controller {

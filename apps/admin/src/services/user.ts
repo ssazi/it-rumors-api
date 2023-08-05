@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { IListResponse, IUser } from '@itrumor/types'
+import type { IListResponse, IUser } from '@itrumors/types'
 
 /** 获取当前的用户 GET /backend/user/info */
 export async function currentUser(options?: { [key: string]: any }) {

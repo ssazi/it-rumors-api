@@ -1,4 +1,4 @@
-import type { IAttachment, IProduct } from '@itrumor/types'
+import type { IAttachment, IProduct } from '@itrumors/types'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
 import { ProTable } from '@ant-design/pro-components'
 import { Badge, Modal, Popover, Select, Switch } from 'antd'

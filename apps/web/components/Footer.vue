@@ -10,7 +10,7 @@ import { version } from '../package.json'
     <div>
       版本: <NuxtLink
         external
-        href="https://github.com/dxhuii/itrumor"
+        href="https://github.com/dxhuii/itrumors"
         target="_blank"
         font-mono
       >
@@ -22,7 +22,7 @@ import { version } from '../package.json'
         关于
       </NuxtLink> &middot; <NuxtLink
         external
-        href="https://github.com/dxhuii/itrumor"
+        href="https://github.com/dxhuii/itrumors"
         target="_blank"
         font-mono
       >

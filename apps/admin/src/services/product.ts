@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { IListResponse, IProduct } from '@itrumor/types'
+import type { IListResponse, IProduct } from '@itrumors/types'
 
 /** 获取剧集详情 GET /backend/product/:id */
 export async function productDetail(options?: Record<string, any>) {

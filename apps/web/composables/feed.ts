@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { IDigg, IFeed, IPin } from '@itrumor/types'
-import { sidName } from '@itrumor/types'
+import type { IDigg, IFeed, IPin } from '@itrumors/types'
+import { sidName } from '@itrumors/types'
 
 export const useFeedStore = defineStore('feed', () => {
   const feedData = useState<IFeed>()

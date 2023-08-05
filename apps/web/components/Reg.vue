@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
 import * as Yup from 'yup'
-import type { ICaptcha } from '@itrumor/types'
+import type { ICaptcha } from '@itrumors/types'
 
 const code = ref<ICaptcha>()
 const user = useUserStore()

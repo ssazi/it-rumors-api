@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { IFeed } from '@itrumor/types'
-import { FeedType, sidName } from '@itrumor/types/enum'
+import type { IFeed } from '@itrumors/types'
+import { FeedType, sidName } from '@itrumors/types/enum'
 
 const { data } = defineProps<{ data: IFeed & { [key: string]: any } }>()
 

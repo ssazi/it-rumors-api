@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { ICommentTable, IComments, IListResponse } from '@itrumor/types'
+import type { ICommentTable, IComments, IListResponse } from '@itrumors/types'
 
 /** 添加动态 POST /backend/comment/add */
 export async function commentAdd(body: IComments, options?: Record<string, any>) {

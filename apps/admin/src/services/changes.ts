@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { IChanges, IListResponse } from '@itrumor/types'
+import type { IChanges, IListResponse } from '@itrumors/types'
 
 /** 删除记录 POST /backend/changes/delete */
 export async function changesDelete(body: { id: number }, options?: Record<string, any>) {

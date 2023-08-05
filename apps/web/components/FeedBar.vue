@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { sidName } from '@itrumor/types/enum'
-import type { IFeed } from '@itrumor/types'
+import { sidName } from '@itrumors/types/enum'
+import type { IFeed } from '@itrumors/types'
 
 const { data, action } = defineProps<{ data: IFeed & { [key: string]: any }; action: any }>()
 const sid = data.sid as keyof typeof sidName

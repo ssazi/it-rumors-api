@@ -1,5 +1,5 @@
-import type { IList } from '@itrumor/types'
-import { modelName } from '@itrumor/types'
+import type { IList } from '@itrumors/types'
+import { modelName } from '@itrumors/types'
 
 /**
  * 格式化分类列表

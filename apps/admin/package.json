@@ -1,5 +1,5 @@
 {
-  "name": "@itrumor/admin",
+  "name": "@itrumors/admin",
   "version": "1.0.0",
   "private": true,
   "engines": {
@@ -22,26 +22,26 @@
     "start:pre": "cross-env REACT_APP_ENV=pre max dev"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.1.4",
-    "@ant-design/pro-components": "^2.6.7",
+    "@ant-design/icons": "^5.2.4",
+    "@ant-design/pro-components": "^2.6.11",
     "@ant-design/use-emotion-css": "^1.0.4",
-    "@itrumor/types": "workspace:*",
-    "antd": "^5.7.2",
+    "@itrumors/types": "workspace:*",
+    "antd": "^5.8.2",
     "classnames": "^2.3.2",
-    "cos-js-sdk-v5": "^1.4.18",
+    "cos-js-sdk-v5": "^1.4.19",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "socket.io-client": "^4.7.1",
+    "socket.io-client": "^4.7.2",
     "spark-md5": "^3.0.2"
   },
   "devDependencies": {
     "@ant-design/pro-cli": "^3.1.0",
-    "@types/lodash": "^4.14.195",
-    "@types/react": "^18.2.15",
+    "@types/lodash": "^4.14.196",
+    "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
     "@types/spark-md5": "^3.0.2",
-    "@umijs/max": "^4.0.72",
+    "@umijs/max": "^4.0.74",
     "cross-env": "^7.0.3",
     "gh-pages": "^5.0.0",
     "typescript-plugin-css-modules": "^5.0.1",

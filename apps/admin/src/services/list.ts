@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { IList } from '@itrumor/types'
+import type { IList } from '@itrumors/types'
 
 /** 栏目列表 GET /backend/list/list */
 export async function list(options?: Record<string, any>) {

@@ -1,4 +1,4 @@
-import type { IAttachment } from '@itrumor/types'
+import type { IAttachment } from '@itrumors/types'
 import { PlusOutlined } from '@ant-design/icons'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
 import { FooterToolbar, ModalForm, PageContainer, ProFormTextArea, ProTable } from '@ant-design/pro-components'
@@ -6,7 +6,7 @@ import type { FormInstance } from 'antd'
 import { Button, Popconfirm, Popover, message } from 'antd'
 import type { FC } from 'react'
 import { useRef, useState } from 'react'
-import { modelType } from '@itrumor/types'
+import { modelType } from '@itrumors/types'
 import { attachmentAdd, attachmentList } from '@/services'
 
 const Attachment: FC = () => {

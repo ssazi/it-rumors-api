@@ -1,5 +1,5 @@
 import { request } from '@umijs/max'
-import type { IListResponse, ITopic, ITopicTable } from '@itrumor/types'
+import type { IListResponse, ITopic, ITopicTable } from '@itrumors/types'
 
 /** 添加话题 POST /backend/topic/add */
 export async function topicAdd(body: ITopic, options?: Record<string, any>) {

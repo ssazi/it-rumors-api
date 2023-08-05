@@ -1,5 +1,5 @@
-import type { IDigg, IFeed, IPin } from '@itrumor/types'
-import { sidName } from '@itrumor/types'
+import type { IDigg, IFeed, IPin } from '@itrumors/types'
+import { sidName } from '@itrumors/types'
 
 type IState = 'idle' | 'loading' | 'done' | 'error'
 

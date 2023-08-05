@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import type { ISts } from '@itrumor/types'
+import type { ISts } from '@itrumors/types'
 import { stsInit } from '@/services'
 
 export default function useMcat() {

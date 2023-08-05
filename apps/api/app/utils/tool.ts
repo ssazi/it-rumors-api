@@ -1,6 +1,6 @@
 import { AES, enc } from 'crypto-js'
 import dayjs from 'dayjs'
-import { sidName } from '@itrumor/types'
+import { sidName } from '@itrumors/types'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/zh-cn'
 
