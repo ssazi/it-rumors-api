@@ -18,7 +18,7 @@ export default (app: Context & Application) => {
         allowNull: false,
         comment: '分类id',
         set(value: string[]) {
-          value && this.setDataValue('cid', value.join(','))
+          value && this.setDataValue('cid', value?.join(','))
         },
         get() {
           const val = this.getDataValue('cid')
