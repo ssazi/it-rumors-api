@@ -22,7 +22,7 @@
     "start:pre": "cross-env REACT_APP_ENV=pre max dev"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.2.4",
+    "@ant-design/icons": "^5.2.5",
     "@ant-design/pro-components": "^2.6.11",
     "@ant-design/use-emotion-css": "^1.0.4",
     "@itrumors/types": "workspace:*",
