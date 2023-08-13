@@ -87,7 +87,7 @@ export default (app: Context & Application) => {
 
     // 我的剧集
     static async product(params) {
-      const result = await model.Product.query(params)
+      const result = await model.Spu.query(params)
       return result
     }
 

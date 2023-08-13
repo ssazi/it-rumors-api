@@ -1,10 +1,10 @@
 import { Controller } from 'egg'
 
-export default class Product extends Controller {
+export default class Spu extends Controller {
   public async get() {
     // 获取 url 中的 id 参数
     const { ctx } = this
-    const data = await ctx.model.Product.get(ctx.params)
+    const data = await ctx.model.Spu.get(ctx.params)
     if (data)
       ctx.helper.success(ctx, { data })
     else
@@ -13,7 +13,7 @@ export default class Product extends Controller {
 
   public async list() {
     const { ctx } = this
-    const data = await ctx.model.Product.query(ctx.request.query)
+    const data = await ctx.model.Spu.query(ctx.request.query)
     if (data)
       ctx.helper.success(ctx, { data })
     else
@@ -22,7 +22,7 @@ export default class Product extends Controller {
 
   public async getName() {
     const { ctx } = this
-    const result = await ctx.model.Product.getName(ctx.query)
+    const result = await ctx.model.Spu.getName(ctx.query)
     return ctx.helper.success(ctx, { data: !!result })
   }
 
@@ -33,7 +33,7 @@ export default class Product extends Controller {
     params.ip = await ctx.getIp()
     const { id, letter, letters } = params
     if (id) {
-      const res = await ctx.model.Product.get(params)
+      const res = await ctx.model.Spu.get(params)
       if (!res)
         return ctx.helper.fail(ctx)
     }
@@ -44,16 +44,16 @@ export default class Product extends Controller {
       params.letters = ctx.helper.h2p(params.name)
 
     if (id) {
-      const result = await ctx.model.Product.edit(params)
+      const result = await ctx.model.Spu.edit(params)
       if (result)
         return ctx.helper.success(ctx, { data: id || result, message: '更新成功' })
       return ctx.helper.fail(ctx, { message: '更新失败' })
     }
-    const repeat = await ctx.model.Product.getName(params)
+    const repeat = await ctx.model.Spu.getName(params)
     if (repeat)
       return ctx.helper.fail(ctx, { message: '已经存在了' })
 
-    const result = await ctx.model.Product.add(params)
+    const result = await ctx.model.Spu.add(params)
     if (result)
       return ctx.helper.success(ctx, { data: id || result, message: '添加成功' })
     return ctx.helper.fail(ctx, { message: '添加失败' })
@@ -62,7 +62,7 @@ export default class Product extends Controller {
   public async editCover() {
     const { ctx } = this
     const params = ctx.request.body
-    const result = await ctx.model.Product.update(params, { where: { id: params.id }, silent: true })
+    const result = await ctx.model.Spu.update(params, { where: { id: params.id }, silent: true })
     if (result)
       return ctx.helper.success(ctx, { data: result, message: '更新成功' })
     return ctx.helper.fail(ctx, { message: '更新失败' })
@@ -70,7 +70,7 @@ export default class Product extends Controller {
 
   public async delete() {
     const { ctx } = this
-    const data = await ctx.model.Product.delete(ctx.params)
+    const data = await ctx.model.Spu.delete(ctx.params)
     if (data)
       ctx.helper.success(ctx, { data, message: '删除成功' })
     else

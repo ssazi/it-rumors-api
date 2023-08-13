@@ -63,7 +63,7 @@ export default class Spu extends Controller {
       const result = await ctx.model.Spu.edit(params)
       if (result) {
         const { id: aid, uid } = params
-        await ctx.model.Feed.add({ ip, sid: modelName.PRODUCT, uid, type: feedType.UPDATE, aid })
+        await ctx.model.Feed.add({ ip, sid: modelName.SPU, uid, type: feedType.UPDATE, aid })
         ctx.helper.success(ctx, { data: id || result, message: '更新成功' })
       }
       else {
@@ -78,7 +78,7 @@ export default class Spu extends Controller {
       const result = await ctx.model.Spu.add(params)
       if (result) {
         const { id: aid, uid } = result
-        await ctx.model.Feed.add({ ip, sid: modelName.PRODUCT, uid, type: feedType.ADD, aid })
+        await ctx.model.Feed.add({ ip, sid: modelName.SPU, uid, type: feedType.ADD, aid })
         ctx.helper.success(ctx, { data: id || result, message: '添加成功' })
       }
       else {
