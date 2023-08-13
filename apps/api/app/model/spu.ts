@@ -1,16 +1,16 @@
 import type { Application, Context } from 'egg'
 import dayjs from 'dayjs'
 import type { ICondition, IParams } from '../typings'
-import type { ProductType } from '../schema/product'
-import subject from '../schema/product'
+import type { SpuType } from '../schema/spu'
+import spu from '../schema/spu'
 
 export default (app: Context & Application) => {
   // 获取数据类型
   const { Sequelize, model } = app
   const { Op } = Sequelize
-  const Product = subject(app)
+  const Spu = spu(app)
 
-  return class extends Product<ProductType> {
+  return class extends Spu<SpuType> {
     /**
      * 写入前置操作
      * @param params IProduct
@@ -26,14 +26,14 @@ export default (app: Context & Application) => {
      * @return {IProduct} IProduct
      */
     static async add(params) {
-      const result = await Product.create(params)
+      const result = await Spu.create(params)
       await this.addBefore({ ...params, id: result.id })
       return result
     }
 
     // 添加多条
     static async adds(params) {
-      const result = await Product.bulkCreate(params)
+      const result = await Spu.bulkCreate(params)
       return result
     }
 
@@ -45,14 +45,14 @@ export default (app: Context & Application) => {
     static async edit(params) {
       const { id } = params
       await this.addBefore({ ...params })
-      const result = await Product.update(params, { where: { id }, silent: !!params.silent })
+      const result = await Spu.update(params, { where: { id }, silent: !!params.silent })
       return result
     }
 
     // 删除
     static async delete(params) {
       const { id } = params
-      const result = await Product.destroy({ where: { id } })
+      const result = await Spu.destroy({ where: { id } })
       if (result) {
         const param: object = { where: { id, sid: 1 } }
         model.Tag.destroy(param)
@@ -71,11 +71,6 @@ export default (app: Context & Application) => {
       const condition: ICondition = {
         attributes,
         order: [[orderBy, order]],
-        include: [
-          { model: model.User, attributes: ['id', 'username', 'nickname', 'avatar'], as: 'user' },
-          { model: model.Attachment, attributes: ['file_path', 'is_remote'], as: 'poster' },
-          { model: model.Attachment, attributes: ['file_path', 'is_remote'], as: 'backdrop_path' }
-        ],
         offset: pageSize * (current - 1),
         limit: +pageSize
       }
@@ -189,7 +184,7 @@ export default (app: Context & Application) => {
 
       condition.where = where
 
-      const { count, rows } = await Product.findAndCountAll(condition)
+      const { count, rows } = await Spu.findAndCountAll(condition)
 
       return {
         list: rows,
@@ -204,7 +199,7 @@ export default (app: Context & Application) => {
         attributes: ['hits'],
         where: { id, status: 'normal' }
       }
-      const result = await Product.findOne(condition)
+      const result = await Spu.findOne(condition)
       return result
     }
 
@@ -227,7 +222,7 @@ export default (app: Context & Application) => {
         }
       }
       condition.where = where
-      const result = await Product.findOne(condition)
+      const result = await Spu.findOne(condition)
       return result
     }
 
@@ -238,27 +233,17 @@ export default (app: Context & Application) => {
         where: { id },
         include: [
           {
-            model: model.User,
-            attributes: ['id', 'username', 'nickname', 'avatar'],
-            as: 'user'
-          },
-          {
             model: model.Comments,
             as: 'comments'
-          },
-          { model: model.Attachment, attributes: ['file_path', 'is_remote'], as: 'poster' },
-          { model: model.Attachment, attributes: ['file_path', 'is_remote'], as: 'backdrop_path' }
+          }
         ]
       }
-      const result = await Product.findOne(condition)
+      const result = await Spu.findOne(condition)
       return result
     }
 
     static associate() {
-      Product.hasOne(model.User, { foreignKey: 'id', sourceKey: 'uid', as: 'user' })
-      Product.hasOne(model.Attachment, { foreignKey: 'id', sourceKey: 'cover', as: 'poster' })
-      Product.hasOne(model.Attachment, { foreignKey: 'id', sourceKey: 'backdrop', as: 'backdrop_path' })
-      Product.hasMany(model.Comments, { foreignKey: 'aid', as: 'comments' })
+      Spu.hasMany(model.Comments, { foreignKey: 'aid', as: 'comments' })
     }
   }
 }

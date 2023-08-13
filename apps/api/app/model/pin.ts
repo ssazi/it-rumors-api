@@ -15,7 +15,7 @@ export default (app: Context & Application) => {
         attributes,
         include: [
           { model: model.User, attributes: ['id', 'username', 'avatar'], as: 'user', include: [{ model: model.Attachment, attributes: ['file_path', 'is_remote'], as: 'avatar_path' }] },
-          { model: model.Product, attributes: ['id', 'name', 'cover'], as: 'product', include: [{ model: model.Attachment, attributes: ['file_path', 'is_remote'], as: 'poster' }] },
+          { model: model.Spu, attributes: ['id', 'name', 'cover'], as: 'spu' },
           { model: model.Topic, attributes: ['id', 'name', 'icon'], as: 'topic', include: [{ model: model.Attachment, attributes: ['file_path', 'is_remote'], as: 'icon_path' }] }
         ],
         order: [order],
@@ -39,7 +39,7 @@ export default (app: Context & Application) => {
         attributes,
         include: [
           { model: model.User, attributes: ['id', 'username', 'avatar'], as: 'user' },
-          { model: model.Product, attributes: ['id', 'name', 'pic'], as: 'product' },
+          { model: model.Spu, attributes: ['id', 'name', 'pic'], as: 'spu' },
           { model: model.Topic, attributes: ['id', 'name', 'icon'], as: 'topic' }
         ],
         where: { id, status: 'normal' }
@@ -69,7 +69,7 @@ export default (app: Context & Application) => {
 
     static associate() {
       Pin.hasOne(model.User, { foreignKey: 'id', sourceKey: 'uid', as: 'user' })
-      Pin.hasOne(model.Product, { foreignKey: 'id', sourceKey: 'aid', as: 'product' })
+      Pin.hasOne(model.Spu, { foreignKey: 'id', sourceKey: 'aid', as: 'spu' })
       Pin.hasOne(model.Topic, { foreignKey: 'id', sourceKey: 'tid', as: 'topic' })
     }
   }

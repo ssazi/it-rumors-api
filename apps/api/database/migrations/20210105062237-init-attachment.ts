@@ -16,7 +16,6 @@ module.exports = {
       file_height: { type: INTEGER, defaultValue: 0, comment: '图片高' },
       ip: { type: INTEGER, defaultValue: 0, comment: 'ip 地址' },
       is_remote: { type: BOOLEAN, defaultValue: false, comment: '是否远程附件' },
-      type: { type: STRING(30), defaultValue: 'posters', comment: '用户状态:posters 海报 logos 标志 backdrops 剧照 backdrop 背景图片' },
       status: { type: STRING(30), defaultValue: 'normal', comment: '用户状态:normal 正常 disable 禁用 check 审核中 reject 拒绝 ignore 忽略 delete 删除' },
       created_at: { type: DATE, defaultValue: NOW, comment: '创建时间' },
       updated_at: { type: DATE, defaultValue: NOW, comment: '更新时间' },

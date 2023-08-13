@@ -12,7 +12,6 @@ import ExportCaptcha from '../../../app/service/captcha';
 import ExportComments from '../../../app/service/comments';
 import ExportDigg from '../../../app/service/digg';
 import ExportFeed from '../../../app/service/feed';
-import ExportList from '../../../app/service/list';
 import ExportLog from '../../../app/service/log';
 import ExportNews from '../../../app/service/news';
 import ExportPin from '../../../app/service/pin';
@@ -30,7 +29,6 @@ declare module 'egg' {
     comments: AutoInstanceType<typeof ExportComments>;
     digg: AutoInstanceType<typeof ExportDigg>;
     feed: AutoInstanceType<typeof ExportFeed>;
-    list: AutoInstanceType<typeof ExportList>;
     log: AutoInstanceType<typeof ExportLog>;
     news: AutoInstanceType<typeof ExportNews>;
     pin: AutoInstanceType<typeof ExportPin>;

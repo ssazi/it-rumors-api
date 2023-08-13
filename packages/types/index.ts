@@ -80,51 +80,89 @@ export interface IFeed extends IHits, IDate, Omit<IId, 'cid'> {
   forward_count: number
   bookmark_count: number
   time: string
-  product?: IProduct
+  spu?: ISpu
   user?: IUser
   topic?: ITopic
   pin?: IPin
   favourite?: IFavourite
 }
 
-export interface IList extends Omit<IId, 'uid' | 'aid' | 'cid'> {
-  rank?: number
+export interface ICategory extends Omit<IId, 'uid' | 'aid' | 'cid'> {
+  sort?: number
   pid?: string | number
   name?: string
   dir?: string
   icon?: string
+  show?: boolean
+  level?: number
   seo_title?: string
   seo_keywords?: string
   seo_description?: string
 }
 
-export interface IProduct extends IHits, IDate, Omit<IId, 'aid'> {
+export interface IAttribute extends Omit<IId, 'uid' | 'cid'> {
+  title?: string
+  value?: { value: string; img_url: string }[]
+}
+
+export interface IBrand extends Omit<IId, 'uid' | 'aid' | 'cid'> {
+  sort?: number
   name?: string
+  dir?: string
+  icon?: string
+  show?: boolean
+  letter?: string
+  desc?: string
+}
+
+export interface ISpu extends IHits, IDate, Omit<IId, 'aid'> {
+  bid?: number
+  name?: string
+  desc?: string
   tag?: string
-  type?: number
-  cover?: number
-  backdrop?: number
-  website?: string
-  company?: string
-  network?: string
-  remark?: string
-  time?: string
+  cover?: string
+  content?: string
   letter?: string
   letters?: string
-  content?: string
-  info?: string
-  year?: string
-  isPublish?: boolean
   up?: number
   down?: number
-  ip?: number
   comment_count?: number
   favourite_count?: number
   bookmark_count?: number
   forward_count?: number
   share_count?: number
-  poster?: { file_path: string }
-  backdrop_path?: { file_path: string }
+}
+
+export interface ISpuImages extends Omit<IId, 'uid' | 'cid'> {
+  name?: string
+  url?: string
+  sort?: number
+  is_default?: boolean
+  is_slide?: boolean
+}
+
+export interface ISpuGroup extends Omit<IId, 'uid' | 'aid'> {
+  title?: string
+  desc?: string
+  sort?: number
+  icon?: string
+}
+
+export interface ISpuAttributeValue extends Omit<IId, 'uid' | 'cid'> {
+  attr_id?: number
+  attr_name?: string
+  gid?: number
+  attr_value?: string
+  attr_sort?: number
+  is_show?: boolean
+  is_search?: boolean
+}
+
+export interface ISku extends Omit<IId, 'uid' | 'cid'> {
+  title?: string
+  price?: number
+  shop_price?: { [key: string]: number }
+  stock?: number
 }
 
 export interface IAttachment extends IDate, Omit<IId, 'cid'> {
@@ -136,9 +174,8 @@ export interface IAttachment extends IDate, Omit<IId, 'cid'> {
   file_width?: number
   file_height?: number
   is_remote?: boolean
-  type?: string
   ip?: number
-  product?: IProduct
+  spu?: ISpu
   user?: IUser
   topic?: ITopic
   company?: ICompany
@@ -217,7 +254,7 @@ export interface IComments extends IDate, Omit<IId, 'cid'> {
   down: number
   reply_count: number
   is_sticky: number
-  product?: IProduct
+  spu?: ISpu
   user?: IUser
   pin?: IPin
 }
@@ -244,7 +281,7 @@ export interface IPin extends IDate, IHits, IId {
   favourite_count: number
   forward_count: number
   bookmark_count: number
-  product?: IProduct
+  spu?: ISpu
   user?: IUser
   topic?: ITopic
 }

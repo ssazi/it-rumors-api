@@ -1,15 +1,14 @@
 import type { Application, Context } from 'egg'
-import type { ListType } from '../schema/list'
+import type { SpuGroupType } from '../schema/spu_group'
 import type { ICondition } from '../typings'
-import list from '../schema/list'
+import spuGroup from '../schema/spu_group'
 
 export default (app: Context & Application) => {
-  const List = list(app)
-  return class extends List<ListType> {
+  const SpuGroup = spuGroup(app)
+  return class extends SpuGroup<SpuGroupType> {
     static async query(params) {
       const { orderBy = 'rank', order = 'ASC', id, pid, sid } = params
       const param: ICondition = {
-        attributes: { exclude: ['seo_title', 'seo_keywords', 'seo_description'] },
         order: [[orderBy, order]]
       }
       const where: { [key: string | symbol]: any } = {}
@@ -24,28 +23,28 @@ export default (app: Context & Application) => {
         where.sid = sid
 
       param.where = where
-      const result = await List.findAll(param)
+      const result = await SpuGroup.findAll(param)
       return result
     }
 
     static async get(params) {
-      const result = await List.findOne(params)
+      const result = await SpuGroup.findOne(params)
       return result
     }
 
     static async add(params) {
-      const result = await List.create(params)
+      const result = await SpuGroup.create(params)
       return result
     }
 
     static async edit(params) {
       const { id } = params
-      const result = await List.update(params, { where: { id } })
+      const result = await SpuGroup.update(params, { where: { id } })
       return result
     }
 
     static async delete(params) {
-      const result = await List.destroy({ where: params })
+      const result = await SpuGroup.destroy({ where: params })
       return result
     }
   }

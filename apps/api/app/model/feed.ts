@@ -17,11 +17,11 @@ export default (app: Context & Application) => {
         include: [
           { model: model.User, attributes: ['id', 'username', 'nickname', 'avatar'], as: 'user' },
           {
-            model: model.Product,
+            model: model.Spu,
             attributes: ['id', 'name', 'up', 'comment_count', 'favourite_count', 'share_count'],
             where: { sid: { [Op.eq]: col('feed.sid') } },
             required: false,
-            as: 'product',
+            as: 'spu',
             include: [{ model: model.Attachment, attributes: ['file_path', 'is_remote'], as: 'poster' }]
           },
           { model: model.Favourite, attributes: ['id', 'content', 'tags', 'rating', 'interest'], where: { sid: { [Op.eq]: col('feed.sid') } }, required: false, as: 'favourite' },
@@ -50,11 +50,11 @@ export default (app: Context & Application) => {
         include: [
           { model: model.User, attributes: ['id', 'username', 'nickname', 'avatar'], as: 'user' },
           {
-            model: model.Product,
+            model: model.Spu,
             attributes: ['id', 'name', 'comment_count', 'favourite_count', 'share_count', 'bookmark_count'],
             where: { sid: { [Op.eq]: col('feed.sid') } },
             required: false,
-            as: 'product',
+            as: 'spu',
             include: [{ model: model.Attachment, attributes: ['file_path', 'is_remote'], as: 'poster' }]
           },
           { model: model.Favourite, attributes: ['id', 'content', 'tags', 'rating', 'interest'], where: { sid: { [Op.eq]: col('feed.sid') } }, required: false, as: 'favourite' },
@@ -87,7 +87,7 @@ export default (app: Context & Application) => {
 
     static associate() {
       Feed.belongsTo(model.User, { foreignKey: 'uid', as: 'user' })
-      Feed.hasOne(model.Product, { foreignKey: 'id', sourceKey: 'aid', as: 'product' })
+      Feed.hasOne(model.Spu, { foreignKey: 'id', sourceKey: 'aid', as: 'spu' })
       Feed.hasOne(model.Favourite, { foreignKey: 'id', sourceKey: 'aid', as: 'favourite' })
       Feed.hasOne(model.Pin, { foreignKey: 'id', sourceKey: 'aid', as: 'pin' })
     }

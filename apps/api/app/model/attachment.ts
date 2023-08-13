@@ -17,9 +17,7 @@ export default (app: Context & Application) => {
         attributes,
         include: [
           { model: model.User, attributes: ['id', 'username', 'nickname', 'avatar'], as: 'user' },
-          { model: model.Product, attributes: ['id', 'name'], where: { sid: { [Op.eq]: col('attachment.sid') } }, required: false, as: 'product' },
-          { model: model.Topic, attributes: ['id', 'name'], where: { sid: { [Op.eq]: col('attachment.sid') } }, required: false, as: 'topic' },
-          { model: model.Company, attributes: ['id', 'name'], where: { sid: { [Op.eq]: col('attachment.sid') } }, required: false, as: 'company' }
+          { model: model.Topic, attributes: ['id', 'name'], where: { sid: { [Op.eq]: col('attachment.sid') } }, required: false, as: 'topic' }
         ],
         order: [[orderBy, order]],
         offset: pageSize * (current - 1),
@@ -74,8 +72,6 @@ export default (app: Context & Application) => {
     static associate() {
       Attachment.hasOne(model.User, { foreignKey: 'id', sourceKey: 'uid', as: 'user' })
       Attachment.hasOne(model.Topic, { foreignKey: 'id', sourceKey: 'aid', as: 'topic' })
-      Attachment.hasOne(model.Product, { foreignKey: 'id', sourceKey: 'aid', as: 'product' })
-      Attachment.hasOne(model.Company, { foreignKey: 'id', sourceKey: 'aid', as: 'company' })
     }
   }
 }

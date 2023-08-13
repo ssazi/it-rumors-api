@@ -59,7 +59,7 @@ export enum feedTypeBig {
 
 /* 模型sid */
 export enum modelName {
-  PRODUCT = 1, // 产品
+  SPU = 1, // 产品
   NEWS, // 新闻
   FAVOURITE, // 喜欢
   TAG, // 标签
@@ -72,11 +72,10 @@ export enum modelName {
   USER, // 用户
   BOOKMARK, // 书签
   CHANGES, // 修改历史
-  COMPANY, // 公司
 }
 
 export const sidName = {
-  [modelName.PRODUCT]: 'product',
+  [modelName.SPU]: 'spu',
   [modelName.NEWS]: 'news',
   [modelName.FAVOURITE]: 'favourite',
   [modelName.TAG]: 'tag',
@@ -88,29 +87,26 @@ export const sidName = {
   [modelName.TOPIC]: 'topic',
   [modelName.BOOKMARK]: 'bookmark',
   [modelName.USER]: 'user',
-  [modelName.CHANGES]: 'changes',
-  [modelName.COMPANY]: 'company'
+  [modelName.CHANGES]: 'changes'
 }
 // 模型sid英文名
 export const modelEnName = {
-  [modelName.PRODUCT]: 'product',
+  [modelName.SPU]: 'spu',
   [modelName.NEWS]: 'News',
   [modelName.FAVOURITE]: 'favourite',
   [modelName.TAG]: 'Tag',
   [modelName.PIN]: 'Pins',
   [modelName.FORWARD]: 'Forward',
-  [modelName.COMMENT]: 'Comment',
   [modelName.REPLY]: 'Reply',
   [modelName.FEED]: 'Feed',
   [modelName.TOPIC]: 'Topic',
   [modelName.USER]: 'User',
   [modelName.BOOKMARK]: 'Bookmark',
-  [modelName.CHANGES]: 'Changes',
-  [modelName.COMPANY]: 'Company'
+  [modelName.CHANGES]: 'Changes'
 }
 
 export const modelType = {
-  [modelName.PRODUCT]: '产品',
+  [modelName.SPU]: '产品',
   [modelName.NEWS]: '新闻',
   [modelName.FAVOURITE]: '评分',
   [modelName.TAG]: '标签',
@@ -122,8 +118,7 @@ export const modelType = {
   [modelName.TOPIC]: '话题',
   [modelName.USER]: '用户',
   [modelName.BOOKMARK]: '书签',
-  [modelName.CHANGES]: '历史',
-  [modelName.COMPANY]: '公司'
+  [modelName.CHANGES]: '历史'
 } as { [key: number]: string }
 
 export enum feedType {

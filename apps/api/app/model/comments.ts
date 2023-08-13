@@ -18,7 +18,7 @@ export default (app: Context & Application) => {
         order: [[orderBy, order]],
         include: [
           { model: model.User, attributes: ['id', 'username', 'nickname', 'avatar'], as: 'user' },
-          { model: model.Product, attributes: ['id', 'name', 'cover'], as: 'product' },
+          { model: model.Spu, attributes: ['id', 'name', 'cover'], as: 'spu' },
           {
             model: Repty,
             attributes: ['id', 'content', 'device', 'is_sticky'],
@@ -146,7 +146,7 @@ export default (app: Context & Application) => {
     static associate() {
       Comments.hasOne(model.User, { foreignKey: 'id', sourceKey: 'uid', as: 'user' })
       Comments.hasMany(Repty, { foreignKey: 'aid', as: 'repty' })
-      Comments.hasOne(model.Product, { foreignKey: 'id', sourceKey: 'aid', as: 'product' })
+      Comments.hasOne(model.Spu, { foreignKey: 'id', sourceKey: 'aid', as: 'spu' })
       Repty.hasOne(model.User, { foreignKey: 'id', sourceKey: 'reply_uid', as: 'reply_user' })
       Repty.hasOne(model.User, { foreignKey: 'id', sourceKey: 'uid', as: 'user' })
     }

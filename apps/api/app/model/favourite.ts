@@ -15,7 +15,7 @@ export default (app: Context & Application) => {
         attributes,
         include: [
           { model: model.User, attributes: ['id', 'username', 'nickname', 'avatar'], as: 'user' },
-          { model: model.Product, attributes: ['id', 'name', 'pic', 'created_at'], as: 'product' }
+          { model: model.Spu, attributes: ['id', 'name', 'pic', 'created_at'], as: 'spu' }
         ],
         order: [order],
         offset: pageSize * (pageNo - 1),
@@ -65,7 +65,7 @@ export default (app: Context & Application) => {
     }
 
     static associate() {
-      Favourite.hasOne(model.Product, { foreignKey: 'id', sourceKey: 'aid', as: 'product' })
+      Favourite.hasOne(model.Spu, { foreignKey: 'id', sourceKey: 'aid', as: 'spu' })
       Favourite.belongsTo(model.User, { as: 'user', foreignKey: 'uid' })
     }
   }

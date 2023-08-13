@@ -11,8 +11,6 @@ export default (app: Application) => {
 
   router.get('/', controller.home.index)
   router.get('/api/sts/init', controller.api.sts.init)
-  router.get('/api/tool/day', controller.api.tool.day)
-  router.get('/api/tool/weather', controller.api.tool.weather)
 
   // 用户
   router.post('/api/user/login', controller.api.user.login)
@@ -29,11 +27,11 @@ export default (app: Application) => {
   router.get('/api/user/setAdmin', controller.api.user.setAdmin)
   router.get('/api/user/:id', controller.api.user.get)
   // 产品
-  router.get('/api/product/list', controller.api.product.list)
-  router.post('/api/product/add', auth(1), controller.api.product.add)
-  router.delete('/api/product/:id', auth(1), controller.api.product.delete)
-  router.get('/api/product/getName', controller.api.product.getName)
-  router.get('/api/product/:id', controller.api.product.get)
+  router.get('/api/spu/list', controller.api.spu.list)
+  router.post('/api/spu/add', auth(1), controller.api.spu.add)
+  router.delete('/api/spu/:id', auth(1), controller.api.spu.delete)
+  router.get('/api/spu/getName', controller.api.spu.getName)
+  router.get('/api/spu/:id', controller.api.spu.get)
   // 喜欢
   router.get('/api/favourite/:id', controller.api.favourite.get)
   router.post('/api/favourite/add', auth(1), controller.api.favourite.add)
@@ -67,10 +65,15 @@ export default (app: Application) => {
   router.get('/api/captcha/init', controller.api.captcha.init)
   router.get('/api/captcha/get', controller.api.captcha.get)
   // 大分类
-  router.get('/api/list/list', controller.api.list.list)
-  router.post('/api/list/add', auth(1), controller.api.list.add)
-  router.delete('/api/list/:id', auth(1), controller.api.list.delete)
-  router.get('/api/list/:id', controller.api.list.get)
+  router.get('/api/category/list', controller.api.category.list)
+  router.post('/api/category/add', auth(1), controller.api.category.add)
+  router.delete('/api/category/:id', auth(1), controller.api.category.delete)
+  router.get('/api/category/:id', controller.api.category.get)
+  // 品牌
+  router.get('/api/brand/list', controller.api.brand.list)
+  router.post('/api/brand/add', auth(1), controller.api.brand.add)
+  router.delete('/api/brand/:id', auth(1), controller.api.brand.delete)
+  router.get('/api/brand/:id', controller.api.brand.get)
   // 日志
   router.get('/api/log/list', controller.api.log.list)
   router.delete('/api/log/:id', auth(1), controller.api.log.delete)
@@ -82,11 +85,6 @@ export default (app: Application) => {
 
   // 点赞
   router.post('/api/digg/add', auth(1), controller.api.digg.add)
-  // 记录
-  router.get('/api/changes/list', controller.api.changes.list)
-  router.post('/api/changes/add', auth(1), controller.api.changes.add)
-  router.post('/api/changes/edit', auth(1), controller.api.changes.edit)
-  router.delete('/api/changes/:id', auth(1), controller.api.changes.delete)
 
   // 后台接口
   // 验证码
@@ -140,10 +138,10 @@ export default (app: Application) => {
   router.put('/backend/tag/edit', auth(100), controller.backend.tag.edit)
   router.delete('/backend/tag/:id', auth(100), controller.backend.tag.delete)
   // 大分类
-  router.get('/backend/list/list', auth(100), controller.backend.list.list)
-  router.post('/backend/list/add', auth(100), controller.backend.list.add)
-  router.delete('/backend/list/:id', auth(100), controller.backend.list.delete)
-  router.get('/backend/list/:id', auth(100), controller.backend.list.get)
+  router.get('/backend/category/list', auth(100), controller.api.category.list)
+  router.post('/backend/category/add', auth(100), controller.api.category.add)
+  router.delete('/backend/category/:id', auth(100), controller.api.category.delete)
+  router.get('/backend/category/:id', auth(100), controller.api.category.get)
   // 配置
   router.get('/backend/setting/list', auth(100), controller.backend.setting.list)
   router.delete('/backend/setting/:id', auth(100), controller.backend.setting.delete)
@@ -152,12 +150,8 @@ export default (app: Application) => {
   router.get('/backend/attachment/list', auth(100), controller.api.attachment.list)
   router.post('/backend/attachment/add', auth(100), controller.api.attachment.add)
   router.post('/backend/attachment/edit', auth(100), controller.api.attachment.edit)
-  // 公司
-  router.get('/backend/company/list', auth(100), controller.backend.company.list)
-  router.post('/backend/company/add', auth(100), controller.backend.company.add)
-  router.post('/backend/company/adds', auth(100), controller.backend.company.adds)
-  router.delete('/backend/company/:id', auth(100), controller.backend.company.delete)
-  // 记录
-  router.get('/backend/changes/list', auth(100), controller.api.changes.list)
-  router.delete('/backend/changes/:id', auth(100), controller.api.changes.delete)
+  // 品牌
+  router.get('/backend/brand/list', auth(100), controller.api.brand.list)
+  router.post('/backend/brand/add', auth(100), controller.api.brand.add)
+  router.delete('/backend/brand/:id', auth(100), controller.api.brand.delete)
 }
