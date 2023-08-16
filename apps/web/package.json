@@ -36,7 +36,7 @@
     "@nuxtjs/color-mode": "^3.3.0",
     "@pinia/nuxt": "^0.4.11",
     "@types/chroma-js": "^2.4.0",
-    "@unocss/nuxt": "^0.55.0",
+    "@unocss/nuxt": "^0.55.1",
     "@vite-pwa/nuxt": "^0.1.0",
     "@vue-macros/nuxt": "^1.7.2",
     "@vueuse/integrations": "^10.3.0",

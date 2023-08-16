@@ -25,6 +25,7 @@
     "db": "npx sequelize db:migrate",
     "db-prod": "npx sequelize db:migrate --env=production",
     "ets": "ets",
+    "ci": "npm run lint && npm run cov && npm run tsc",
     "db:up": "npx sequelize-cli db:migrate",
     "db:undo": "npx sequelize-cli db:migrate:undo"
   },
@@ -45,7 +46,7 @@
     "module-alias": "^2.2.3",
     "nodemailer": "^6.9.4",
     "pg": "^8.11.2",
-    "pinyin-pro": "^3.16.2",
+    "pinyin-pro": "^3.16.3",
     "qcloud-cos-sts": "^3.1.0",
     "svg-captcha": "^1.4.0"
   },
