@@ -7,7 +7,7 @@ export default (app: Context & Application) => {
   const SpuAttributeValue = spuAttributeValue(app)
   return class extends SpuAttributeValue<SpuAttributeValueType> {
     static async query(params) {
-      const { orderBy = 'rank', order = 'ASC', id, pid, sid } = params
+      const { orderBy = 'sort', order = 'DESC', id, gid, aid } = params
       const param: ICondition = {
         order: [[orderBy, order]]
       }
@@ -16,11 +16,11 @@ export default (app: Context & Application) => {
       if (id)
         where.id = id
 
-      if (pid)
-        where.pid = pid
+      if (gid)
+        where.gid = gid
 
-      if (sid)
-        where.sid = sid
+      if (aid)
+        where.aid = aid
 
       param.where = where
       const result = await SpuAttributeValue.findAll(param)

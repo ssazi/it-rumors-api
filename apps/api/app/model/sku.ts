@@ -7,7 +7,7 @@ export default (app: Context & Application) => {
   const Sku = sku(app)
   return class extends Sku<SkuType> {
     static async query(params) {
-      const { orderBy = 'rank', order = 'ASC', id, pid, sid } = params
+      const { orderBy = 'rank', order = 'ASC', id, aid } = params
       const param: ICondition = {
         order: [[orderBy, order]]
       }
@@ -16,11 +16,8 @@ export default (app: Context & Application) => {
       if (id)
         where.id = id
 
-      if (pid)
-        where.pid = pid
-
-      if (sid)
-        where.sid = sid
+      if (aid)
+        where.aid = aid
 
       param.where = where
       const result = await Sku.findAll(param)

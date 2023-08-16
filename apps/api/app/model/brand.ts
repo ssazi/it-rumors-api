@@ -7,21 +7,14 @@ export default (app: Context & Application) => {
   const Brand = brand(app)
   return class extends Brand<BrandType> {
     static async query(params) {
-      const { orderBy = 'rank', order = 'ASC', id, pid, sid } = params
+      const { orderBy = 'sort', order = 'DESC', id } = params
       const param: ICondition = {
-        attributes: { exclude: ['seo_title', 'seo_keywords', 'seo_description'] },
         order: [[orderBy, order]]
       }
       const where: { [key: string | symbol]: any } = {}
 
       if (id)
         where.id = id
-
-      if (pid)
-        where.pid = pid
-
-      if (sid)
-        where.sid = sid
 
       param.where = where
       const result = await Brand.findAll(param)

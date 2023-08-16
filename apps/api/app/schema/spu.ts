@@ -7,7 +7,7 @@ export interface SpuType extends BaseModel, ISpu {}
 export default (app: Context & Application) => {
   const { model, Sequelize } = app
   // 获取数据类型
-  const { NOW, DATE, STRING, TEXT, INTEGER, SMALLINT } = Sequelize
+  const { NOW, DATE, STRING, TEXT, INTEGER, SMALLINT, BOOLEAN } = Sequelize
 
   return model.define(
     'spu_info',
@@ -25,6 +25,7 @@ export default (app: Context & Application) => {
       letters: { type: STRING, allowNull: false, comment: '拼音' },
       up: { type: INTEGER, defaultValue: 0, comment: '顶' },
       down: { type: INTEGER, defaultValue: 0, comment: '踩' },
+      isPublish: { type: BOOLEAN, defaultValue: false, comment: '是否发布' },
       comment_count: { type: INTEGER, defaultValue: 0, comment: '评论数' },
       forward_count: { type: INTEGER, defaultValue: 0, comment: '转发数' },
       favourite_count: { type: INTEGER, defaultValue: 0, comment: '喜欢数' },

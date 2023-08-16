@@ -7,7 +7,7 @@ export default (app: Context & Application) => {
   const Category = category(app)
   return class extends Category<CategoryType> {
     static async query(params) {
-      const { orderBy = 'rank', order = 'ASC', id, pid, sid } = params
+      const { orderBy = 'rank', order = 'ASC', id, pid } = params
       const param: ICondition = {
         attributes: { exclude: ['seo_title', 'seo_keywords', 'seo_description'] },
         order: [[orderBy, order]]
@@ -19,9 +19,6 @@ export default (app: Context & Application) => {
 
       if (pid)
         where.pid = pid
-
-      if (sid)
-        where.sid = sid
 
       param.where = where
       const result = await Category.findAll(param)

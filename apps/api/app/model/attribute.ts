@@ -7,9 +7,8 @@ export default (app: Context & Application) => {
   const Attribute = attribute(app)
   return class extends Attribute<AttributeType> {
     static async query(params) {
-      const { orderBy = 'rank', order = 'ASC', id, pid, sid } = params
+      const { orderBy = 'rank', order = 'ASC', id, pid, aid } = params
       const param: ICondition = {
-        attributes: { exclude: ['seo_title', 'seo_keywords', 'seo_description'] },
         order: [[orderBy, order]]
       }
       const where: { [key: string | symbol]: any } = {}
@@ -20,8 +19,8 @@ export default (app: Context & Application) => {
       if (pid)
         where.pid = pid
 
-      if (sid)
-        where.sid = sid
+      if (aid)
+        where.aid = aid
 
       param.where = where
       const result = await Attribute.findAll(param)

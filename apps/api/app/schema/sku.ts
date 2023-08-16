@@ -16,7 +16,18 @@ export default (app: Context & Application) => {
       aid: { type: INTEGER, comment: '商品id' },
       title: { type: STRING, comment: '标题' },
       price: { type: DECIMAL(18, 4), comment: '价格' },
-      shop_price: { type: JSONB, defaultValue: [], comment: '电商价' }, // 如：[{jd:300}, {taobao:200}]
+      shop_price: {
+        type: JSONB,
+        defaultValue: [],
+        comment: '电商价',
+        set(value: { [key: string]: number }[]) {
+          value && this.setDataValue('shop_price', JSON.stringify(value))
+        },
+        get() {
+          const val = this.getDataValue('shop_price')
+          return val ? JSON.parse(val) : []
+        }
+      }, // 如：[{jd:300}, {taobao:200}]
       stock: { type: INTEGER, defaultValue: 0, comment: '库存' }
     },
     { timestamps: false }

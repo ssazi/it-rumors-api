@@ -7,7 +7,7 @@ export default (app: Context & Application) => {
   const SpuGroup = spuGroup(app)
   return class extends SpuGroup<SpuGroupType> {
     static async query(params) {
-      const { orderBy = 'rank', order = 'ASC', id, pid, sid } = params
+      const { orderBy = 'sort', order = 'DESC', id, cid } = params
       const param: ICondition = {
         order: [[orderBy, order]]
       }
@@ -16,11 +16,8 @@ export default (app: Context & Application) => {
       if (id)
         where.id = id
 
-      if (pid)
-        where.pid = pid
-
-      if (sid)
-        where.sid = sid
+      if (cid)
+        where.pid = cid
 
       param.where = where
       const result = await SpuGroup.findAll(param)
