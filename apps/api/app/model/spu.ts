@@ -67,7 +67,7 @@ export default (app: Context & Application) => {
      */
     static async query(params: IParams<string>) {
       const { attributes, pageSize = 10, current = 1, filter = '{}', order = 'DESC', orderBy = 'updated_at' } = params
-      const { wd, ids, not, letter, cid, names, year, isPublish, hits, up, down, created_at, day, tag } = JSON.parse(filter)
+      const { wd, ids, not, letter, cid, names, year, is_publish, hits, up, down, created_at, day, tag } = JSON.parse(filter)
       const condition: ICondition = {
         attributes,
         order: [[orderBy, order]],
@@ -106,8 +106,8 @@ export default (app: Context & Application) => {
       if (year)
         where.year = year.split(',')
 
-      if (isPublish)
-        where.isPublish = isPublish
+      if (is_publish)
+        where.is_publish = is_publish
 
       if (hits) {
         const arr = hits.split(',')

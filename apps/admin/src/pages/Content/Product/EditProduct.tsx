@@ -1,4 +1,4 @@
-import type { IProduct } from '@itrumors/types'
+import type { ISpu } from '@itrumors/types'
 import type { ActionType, ProFormInstance } from '@ant-design/pro-components'
 import {
   ModalForm,
@@ -24,17 +24,17 @@ interface IEdit {
   actionRef: React.MutableRefObject<ActionType | undefined>
   visible: boolean
   setVisible: (visible: boolean) => void
-  setEditData: (data: IProduct | undefined) => void
-  editData: IProduct | undefined
+  setEditData: (data: ISpu | undefined) => void
+  editData: ISpu | undefined
 }
 
 const SubjectEdit: FC<IEdit> = props => {
-  const formRef = useRef<ProFormInstance<IProduct>>()
+  const formRef = useRef<ProFormInstance<ISpu>>()
   const { actionRef, visible, setVisible, setEditData, editData } = props
   const cate = useCategory()
 
   return (
-    <ModalForm<IProduct>
+    <ModalForm<ISpu>
       autoFocusFirstInput
       formRef={formRef}
       layout='horizontal'
@@ -66,7 +66,7 @@ const SubjectEdit: FC<IEdit> = props => {
       onOpenChange={setVisible}
       open={visible}
       request={async () => {
-        let data: IProduct = { name: '' }
+        let data: ISpu = { name: '' }
         if (editData?.id) {
           const subject = await productDetail({ id: editData?.id })
           data = subject.data
@@ -82,7 +82,7 @@ const SubjectEdit: FC<IEdit> = props => {
         <ProFormDatePicker fieldProps={{ picker: 'year', format: 'YYYY' }} name='year' placeholder='年份' width={90} />
         <ProFormDatePicker fieldProps={{ format: 'YYYY-MM-DD' }} name='time' placeholder='发布时间' width={130} />
         <ProFormSelect name='status' placeholder='状态' valueEnum={statusType} width={90} />
-        <ProFormSwitch label='是否发布' name='isPublist' />
+        <ProFormSwitch label='是否发布' name='is_publish' />
       </ProForm.Group>
       <ProForm.Group size={5}>
         <ProFormText
@@ -104,30 +104,25 @@ const SubjectEdit: FC<IEdit> = props => {
           width='lg' />
         <ProFormText label='官网' name='website' placeholder='官网' width='lg' />
       </ProForm.Group>
+      <ProFormTextArea fieldProps={{ rows: 6 }} label='描述' name='desc' placeholder='描述' />
       <ProFormTextArea fieldProps={{ rows: 6 }} label='简介' name='content' placeholder='简介' />
       <ProFormSwitch label='是否显示更多' name='isShowMore' />
       <ProFormDependency name={['isShowMore']}>
         {({ isShowMore }) => {
           if (isShowMore) {
             return (
-              <>
-                <ProFormTextArea label='简评' name='remark' placeholder='简评' />
-                <ProFormTextArea label='其他' name='other' placeholder='其他' />
-                <ProForm.Group>
-                  <ProFormDatePicker fieldProps={{ format: 'YYYY-MM-DD HH:mm:ss' }} label='更新' name='updated_at' placeholder='更新时间' />
-                  <ProFormDatePicker fieldProps={{ format: 'YYYY-MM-DD HH:mm:ss' }} label='创建' name='created_at' placeholder='更新时间' />
-                  <ProFormDigit label='访问' name='hits' placeholder='总' width='xs' />
-                  <ProFormDigit label='日' name='hits_day' placeholder='日' width='xs' />
-                  <ProFormDigit label='周' name='hits_week' placeholder='周' width='xs' />
-                  <ProFormDigit label='月' name='hits_month' placeholder='月' width='xs' />
-                  <ProFormDigit label='顶' name='up' placeholder='顶' width='xs' />
-                  <ProFormDigit label='踩' name='down' placeholder='踩' width='xs' />
-                  <ProFormText name='uid' placeholder='用户id' width='xs' />
-                  <ProFormText name='inputer' placeholder='发布人' width='xs' />
-                  <ProFormText name='letter' placeholder='首字母' width='xs' />
-                  <ProFormText name='letters' placeholder='拼音' width='md' />
-                </ProForm.Group>
-              </>
+              <ProForm.Group>
+                <ProFormDatePicker fieldProps={{ format: 'YYYY-MM-DD HH:mm:ss' }} label='更新' name='updated_at' placeholder='更新时间' />
+                <ProFormDatePicker fieldProps={{ format: 'YYYY-MM-DD HH:mm:ss' }} label='创建' name='created_at' placeholder='更新时间' />
+                <ProFormDigit label='访问' name='hits' placeholder='总' width='xs' />
+                <ProFormDigit label='日' name='hits_day' placeholder='日' width='xs' />
+                <ProFormDigit label='周' name='hits_week' placeholder='周' width='xs' />
+                <ProFormDigit label='月' name='hits_month' placeholder='月' width='xs' />
+                <ProFormDigit label='顶' name='up' placeholder='顶' width='xs' />
+                <ProFormDigit label='踩' name='down' placeholder='踩' width='xs' />
+                <ProFormText name='letter' placeholder='首字母' width='xs' />
+                <ProFormText name='letters' placeholder='拼音' width='md' />
+              </ProForm.Group>
             )
           }
           return null

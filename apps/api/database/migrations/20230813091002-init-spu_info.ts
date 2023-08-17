@@ -16,7 +16,7 @@ module.exports = {
       letters: { type: STRING, allowNull: false, comment: '拼音' },
       up: { type: INTEGER, defaultValue: 0, comment: '顶' },
       down: { type: INTEGER, defaultValue: 0, comment: '踩' },
-      isPublish: { type: BOOLEAN, defaultValue: false, comment: '是否发布' },
+      is_publish: { type: BOOLEAN, defaultValue: false, comment: '是否发布' },
       comment_count: { type: INTEGER, defaultValue: 0, comment: '评论数' },
       forward_count: { type: INTEGER, defaultValue: 0, comment: '转发数' },
       favourite_count: { type: INTEGER, defaultValue: 0, comment: '喜欢数' },

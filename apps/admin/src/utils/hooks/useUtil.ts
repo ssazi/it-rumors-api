@@ -31,3 +31,18 @@ export function useCategory() {
 
   return data
 }
+
+export function useBrand() {
+  const { brandList, getCategoryList } = useModel('useBrand')
+
+  useEffect(() => {
+    getCategoryList()
+  }, [getCategoryList])
+
+  const data: { value: IValue; label: string }[] = []
+  brandList.forEach(item => {
+    data.push({ value: item.id!, label: item.name! })
+  })
+
+  return data
+}

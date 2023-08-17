@@ -1,27 +1,31 @@
-import type { IProduct } from '@itrumors/types'
+import type { ISpu } from '@itrumors/types'
 import { PlusOutlined } from '@ant-design/icons'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
 import { FooterToolbar, PageContainer, ProTable } from '@ant-design/pro-components'
 import { Button, Popconfirm, Popover } from 'antd'
 import type { FC } from 'react'
 import { useRef, useState } from 'react'
-import { statusType } from '@itrumors/types'
 import EditProduct from './EditProduct'
 import PicModal from './PicModal'
 import { productList } from '@/services'
+import { useBrand } from '@/utils/hooks/useUtil'
 
 const Product: FC = () => {
   const actionRef = useRef<ActionType>()
-  const [selectedRowsState, setSelectedRows] = useState<IProduct[]>([])
+  const [selectedRowsState, setSelectedRows] = useState<ISpu[]>([])
   const [modalVisit, setModalVisit] = useState(false)
   const [modalPic, setModalPic] = useState(false)
-  const [editData, setEditData] = useState<IProduct>()
+  const [editData, setEditData] = useState<ISpu>()
+
+  const sss = useBrand()
+
+  console.log(sss, 'sss')
 
   const del = (id?: number | string) => {
     console.log(id)
   }
 
-  const columns: ProColumns<IProduct>[] = [
+  const columns: ProColumns<ISpu>[] = [
     {
       title: '名称',
       dataIndex: 'name',
@@ -30,7 +34,7 @@ const Product: FC = () => {
         <Popover
           content={
             <img
-              src={entity.poster?.file_path}
+              src={entity.cover}
               style={{
                 width: 200
               }} />
@@ -41,9 +45,12 @@ const Product: FC = () => {
     },
     {
       title: '发布',
-      dataIndex: 'isPublish',
-      hideInForm: true,
-      render: val => val ? '是' : '否'
+      dataIndex: 'is_publish',
+      render: val => val ? '是' : '否',
+      valueEnum: {
+        true: '是',
+        false: '否'
+      }
     },
     {
       title: '人气',
@@ -62,11 +69,6 @@ const Product: FC = () => {
       dataIndex: 'updated_at',
       valueType: 'dateRange',
       hideInTable: true
-    },
-    {
-      title: '状态',
-      dataIndex: 'status',
-      valueEnum: statusType
     },
     {
       title: '操作',
@@ -98,22 +100,18 @@ const Product: FC = () => {
   ]
   return (
     <PageContainer header={{ title: false }}>
-      <ProTable<IProduct>
+      <ProTable<ISpu>
         actionRef={actionRef}
         columns={columns}
         dateFormatter='string'
         request={async params => {
-          const { current, pageSize, name: wd, mcid, language, area, isend, updated_at, weekday } = params
+          const { current, pageSize, name: wd, is_publish, updated_at } = params
           const param = {
             current,
             pageSize,
             filter: JSON.stringify({
               wd,
-              mcid,
-              language,
-              area,
-              isend,
-              weekday,
+              is_publish,
               created_at: updated_at?.join(',')
             })
           }

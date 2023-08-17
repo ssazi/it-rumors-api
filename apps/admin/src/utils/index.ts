@@ -1,25 +1,4 @@
-import type { IList } from '@itrumors/types'
 import { modelName } from '@itrumors/types'
-
-/**
- * 格式化分类列表
- * @param list 分类列表
- * @returns array
- */
-
-export function getList<T extends IList>(list: T[]) {
-  const data: ({ sub?: T[] } & T)[] = []
-  list.forEach(item => {
-    if (+item.pid! === 0)
-      data.push({ ...item, sub: [] })
-  })
-  data.forEach(item => {
-    const arr = list.filter(s => +s.pid! === +item.id!)
-    if (arr.length)
-      item.sub = arr
-  })
-  return data
-}
 
 /**
  * 判断是否是数字
@@ -65,7 +44,7 @@ export function idToStr(data: any[]) {
 }
 
 export const sidObj = [
-  { label: '动漫', value: modelName.PRODUCT },
+  { label: '产品', value: modelName.SPU },
   { label: '新闻', value: modelName.NEWS },
   { label: '收藏', value: modelName.FAVOURITE },
   { label: '标签', value: modelName.TAG },
