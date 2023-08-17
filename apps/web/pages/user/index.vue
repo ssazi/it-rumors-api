@@ -7,8 +7,9 @@ definePageMeta({
 })
 const route = useRoute()
 const id = $(computedEager(() => route.params.id as string))
+console.log(id, 'user-id')
 const user = useUserStore()
-await user.getUserIdInfo(id)
+id && await user.getUserIdInfo(id)
 const { userInfo: data } = user
 useHead({
   title: () => `用户中心 | ${data?.nickname || data?.username}`

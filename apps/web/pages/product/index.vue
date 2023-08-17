@@ -8,7 +8,14 @@ definePageMeta({
 const route = useRoute()
 const subject = useSubjectStore()
 const id = $(computedEager(() => route.params.id as string))
-await subject.getSubject(id)
+console.log(id, 'subject-id')
+try {
+  id && await subject.getSubject(id)
+}
+catch (error) {
+  console.log(error, 'error')
+}
+
 const { subjectData: data } = subject
 useHead({
   title: () => `${data?.name} | ${APP_NAME}`

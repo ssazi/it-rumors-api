@@ -4,8 +4,7 @@ import { APP_NAME } from '~/constants'
 const el = ref<HTMLElement>()
 const feed = useFeedStore()
 await feed.list({ current: 1 })
-const { items, update, state, endAnchor, error, onLike } = usePaginator(feed.feedList)
-console.log(state.value, 'state')
+const { items, update, state, endAnchor, error, onLike } = usePaginator(feed.feedList || [])
 useHead({
   title: () => APP_NAME
 })
@@ -14,7 +13,8 @@ useHead({
 <template>
   <div ref="el" pos="relative">
     <Chat />
-    <DynamicScroller
+    <Feed v-for="item in items" :key="item.id" :data="item" :action="{ onLike }" />
+    <!-- <DynamicScroller
       :items="items"
       :min-item-size="200"
       :prerender="20"
@@ -26,11 +26,9 @@ useHead({
           :active="active"
           :data-index="index"
           tag="article"
-        >
-          <Feed :data="item" :action="{ onLike }" />
-        </DynamicScrollerItem>
+        />
       </template>
-    </DynamicScroller>
+    </DynamicScroller> -->
     <div ref="endAnchor" />
     <template v-if="state === 'loading'">
       <TimelineSkeleton />
