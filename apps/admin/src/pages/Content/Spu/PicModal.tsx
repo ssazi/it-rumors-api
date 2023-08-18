@@ -1,11 +1,11 @@
-import type { IAttachment, IProduct } from '@itrumors/types'
+import type { IAttachment, ISpu } from '@itrumors/types'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
 import { ProTable } from '@ant-design/pro-components'
-import { Badge, Modal, Popover, Select, Switch } from 'antd'
+import { Badge, Modal, Popover } from 'antd'
 import type { FC } from 'react'
 import { useRef, useState } from 'react'
 import Upload from '@/components/Upload'
-import { attachmentEdit, attachmentList, productEditCover } from '@/services'
+import { attachmentEdit, attachmentList } from '@/services'
 
 export const typeEnum: { [key: string]: string } = { posters: '海报', logos: '标志', backdrops: '剧照' }
 
@@ -13,7 +13,7 @@ interface IEdit {
   actionRef: React.MutableRefObject<ActionType | undefined>
   visible: boolean
   setVisible: (visible: boolean) => void
-  data?: IProduct
+  data?: ISpu
 }
 
 function renderBadge(count: number, active = false) {
@@ -34,21 +34,14 @@ const PicModal: FC<IEdit> = props => {
   const { actionRef, visible, setVisible, data } = props
   const [activeKey, setActiveKey] = useState<React.Key>('tab1')
 
-  const onChange = (data: IProduct) => {
+  const onChange = (data: ISpu) => {
     console.log(data)
     actionTable.current?.reload()
   }
 
   const onTypeChange = async (type: string, data: IAttachment) => {
-    await attachmentEdit({ type, id: data.id })
+    await attachmentEdit({ id: data.id })
     actionTable.current?.reload()
-  }
-
-  const onDefaultChange = async (checked: boolean, data: IAttachment) => {
-    if (checked) {
-      await productEditCover({ id: data?.aid, cover: data?.id })
-      actionTable.current?.reload()
-    }
   }
 
   const onClose = () => {
@@ -75,11 +68,6 @@ const PicModal: FC<IEdit> = props => {
       )
     },
     {
-      title: '分类',
-      dataIndex: 'type',
-      render: (_, entity) => <Select onChange={type => onTypeChange(type, entity)} options={Object.keys(typeEnum).map(item => ({ label: typeEnum[item], value: item }))} style={{ width: '90%' }} value={entity.type} />
-    },
-    {
       title: '用户名',
       dataIndex: 'username',
       render: (_, entity) => entity.user?.username
@@ -94,7 +82,6 @@ const PicModal: FC<IEdit> = props => {
       width: 150,
       valueType: 'option',
       render: (_, record) => [
-        <Switch checked={record.id === record.product?.cover} checkedChildren='默认' key='isDefaut' onChange={e => onDefaultChange(e, record)} unCheckedChildren='非默认' />,
         <a key='del'>
           删除
         </a>

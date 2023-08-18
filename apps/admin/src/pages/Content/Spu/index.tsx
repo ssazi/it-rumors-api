@@ -7,19 +7,14 @@ import type { FC } from 'react'
 import { useRef, useState } from 'react'
 import EditProduct from './EditProduct'
 import PicModal from './PicModal'
-import { productList } from '@/services'
-import { useBrand } from '@/utils/hooks/useUtil'
+import { spuList } from '@/services'
 
-const Product: FC = () => {
+const Spu: FC = () => {
   const actionRef = useRef<ActionType>()
   const [selectedRowsState, setSelectedRows] = useState<ISpu[]>([])
   const [modalVisit, setModalVisit] = useState(false)
   const [modalPic, setModalPic] = useState(false)
   const [editData, setEditData] = useState<ISpu>()
-
-  const sss = useBrand()
-
-  console.log(sss, 'sss')
 
   const del = (id?: number | string) => {
     console.log(id)
@@ -115,7 +110,7 @@ const Product: FC = () => {
               created_at: updated_at?.join(',')
             })
           }
-          const res = await productList(param)
+          const res = await spuList(param)
           return {
             data: res.data?.list,
             total: res.data?.total,
@@ -156,4 +151,4 @@ const Product: FC = () => {
   )
 }
 
-export default Product
+export default Spu

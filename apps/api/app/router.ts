@@ -100,12 +100,11 @@ export default (app: Application) => {
   router.delete('/backend/user/:id', auth(100), controller.api.user.delete)
   router.get('/backend/user/:id', auth(100), controller.api.user.get)
   // 产品
-  router.get('/backend/product/list', auth(100), controller.backend.product.list)
-  router.post('/backend/product/add', auth(100), controller.backend.product.add)
-  router.post('/backend/product/editCover', auth(100), controller.backend.product.editCover)
-  router.delete('/backend/product/:id', auth(100), controller.backend.product.delete)
-  router.get('/backend/product/getName', auth(100), controller.backend.product.getName)
-  router.get('/backend/product/:id', auth(100), controller.backend.product.get)
+  router.get('/backend/spu/list', auth(100), controller.api.spu.list)
+  router.post('/backend/spu/add', auth(100), controller.api.spu.add)
+  router.delete('/backend/spu/:id', auth(100), controller.api.spu.delete)
+  router.get('/backend/spu/getName', auth(100), controller.api.spu.getName)
+  router.get('/backend/spu/:id', auth(100), controller.api.spu.get)
   // 新闻
   router.get('/backend/news/list', auth(100), controller.backend.news.list)
   router.get('/backend/news/:id', auth(100), controller.backend.news.get)

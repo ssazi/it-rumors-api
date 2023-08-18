@@ -359,6 +359,14 @@ export interface IResponse {
   message: string
 }
 
+export interface IPage {
+  // query
+  /** 当前的页码 */
+  current?: number
+  /** 页面的容量 */
+  pageSize?: number
+}
+
 export interface PageResult<T = any> extends IResponse {
   data: T
 }

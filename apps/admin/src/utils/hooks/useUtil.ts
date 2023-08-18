@@ -9,7 +9,7 @@ import { useModel } from '@umijs/max'
 
 type IValue = number | string
 export function useCategory() {
-  const { categoryList, getCategoryList } = useModel('useList')
+  const { categoryList, getCategoryList } = useModel('useCategory')
 
   useEffect(() => {
     getCategoryList()
@@ -33,16 +33,13 @@ export function useCategory() {
 }
 
 export function useBrand() {
-  const { brandList, getCategoryList } = useModel('useBrand')
+  const { brandList, getBrandList } = useModel('useBrand')
 
   useEffect(() => {
-    getCategoryList()
-  }, [getCategoryList])
+    getBrandList()
+  }, [getBrandList])
 
-  const data: { value: IValue; label: string }[] = []
-  brandList.forEach(item => {
-    data.push({ value: item.id!, label: item.name! })
-  })
-
-  return data
+  return brandList.reduce<{ [key: string]: number }>((pre, cur) => {
+    return { ...pre, [cur.name!]: cur.id! }
+  }, {})
 }

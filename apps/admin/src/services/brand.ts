@@ -29,3 +29,12 @@ export async function brandDeatil(
     ...(options || {})
   })
 }
+
+/** 删除 POST /backend/brand/delete */
+export async function brandDelete(body: { id: number }, options?: Record<string, any>) {
+  return request<{ data: IBrand; status: number; message: string }>('/backend/brand/delete', {
+    method: 'DELETE',
+    data: body,
+    ...(options || {})
+  })
+}

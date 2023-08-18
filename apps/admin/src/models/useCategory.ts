@@ -1,18 +1,17 @@
 import type { ICategory } from '@itrumors/types'
 import { useCallback, useState } from 'react'
-import { list } from '@/services'
-import { idToStr } from '@/utils'
+import { categoryList } from '@/services'
 
 export default function useList() {
-  const [categoryList, setCategoryList] = useState<ICategory[]>([])
+  const [data, setData] = useState<ICategory[]>([])
 
   const getCategoryList = useCallback(async (params?: { pid?: number; sid?: number }) => {
-    const res = await list(params)
-    setCategoryList(res.data)
+    const res = await categoryList(params)
+    setData(res.data)
   }, [])
 
   return {
-    categoryList: idToStr(categoryList) as ICategory[],
+    categoryList: data,
     getCategoryList
   }
 }

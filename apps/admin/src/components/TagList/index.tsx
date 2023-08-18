@@ -6,10 +6,11 @@ import { Input, Space, Tag, theme } from 'antd'
 interface ITagListProps {
   value?: string[]
   onChange?: (value: string[]) => void
+  name?: string
 }
 
 function App(props: ITagListProps) {
-  const { value = [], onChange } = props
+  const { value = [], onChange, name } = props
   const { token } = theme.useToken()
   const [inputVisible, setInputVisible] = useState(false)
   const [inputValue, setInputValue] = useState('')
@@ -121,7 +122,7 @@ function App(props: ITagListProps) {
           )
         : (
           <Tag onClick={showInput} style={tagPlusStyle}>
-            <PlusOutlined /> 添加别名
+            <PlusOutlined /> 添加{name}
           </Tag>
           )}
     </Space>

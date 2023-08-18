@@ -7,12 +7,12 @@ export default [
     icon: 'ReadOutlined',
     access: 'canAdmin',
     routes: [
-      { path: '/content', redirect: '/content/product' },
+      { path: '/content', redirect: '/content/spu' },
       {
-        path: '/content/product',
+        path: '/content/spu',
         name: '产品列表',
-        component: './Content/Product',
-        parentKeys: ['/content/product']
+        component: './Content/Spu',
+        parentKeys: ['/content/spu']
       },
       {
         path: '/content/feed',
@@ -49,12 +49,6 @@ export default [
         name: '话题列表',
         component: './Content/Topic',
         parentKeys: ['/content/topic']
-      },
-      {
-        path: '/content/changes',
-        name: '编辑历史',
-        component: './Content/Changes',
-        parentKeys: ['/content/changes']
       }
     ]
   },
@@ -72,10 +66,16 @@ export default [
         component: './Config/List'
       },
       {
-        path: '/config/company',
-        name: '公司列表',
-        component: './Config/Company',
-        parentKeys: ['/config/company']
+        path: '/config/brand',
+        name: '品牌列表',
+        component: './Config/Brand',
+        parentKeys: ['/config/brand']
+      },
+      {
+        path: '/config/category',
+        name: '分类列表',
+        component: './Config/Category',
+        parentKeys: ['/config/category']
       }
     ]
   },

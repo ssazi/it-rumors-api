@@ -15,8 +15,10 @@ import { Cascader, Form, message } from 'antd'
 import type { FC } from 'react'
 import { useRef } from 'react'
 import { statusType } from '@itrumors/types'
-import { useCategory } from '@/utils/hooks/useUtil'
-import { productAdd, productDetail, productName } from '@/services'
+import { useBrand, useCategory } from '@/utils/hooks/useUtil'
+import { spuAdd, spuDetail, spuName } from '@/services'
+import Upload from '@/components/Upload'
+import TagList from '@/components/TagList'
 
 const { Item } = Form
 
@@ -32,6 +34,7 @@ const SubjectEdit: FC<IEdit> = props => {
   const formRef = useRef<ProFormInstance<ISpu>>()
   const { actionRef, visible, setVisible, setEditData, editData } = props
   const cate = useCategory()
+  const brand = useBrand()
 
   return (
     <ModalForm<ISpu>
@@ -46,7 +49,7 @@ const SubjectEdit: FC<IEdit> = props => {
       }}
       onFinish={async values => {
         console.log(values)
-        const res = await productAdd({ ...values, id: editData?.id })
+        const res = await spuAdd({ ...values, id: editData?.id })
         if (res.status === 200) {
           if (editData?.id)
             message.success('修改成功')
@@ -68,7 +71,7 @@ const SubjectEdit: FC<IEdit> = props => {
       request={async () => {
         let data: ISpu = { name: '' }
         if (editData?.id) {
-          const subject = await productDetail({ id: editData?.id })
+          const subject = await spuDetail({ id: editData?.id })
           data = subject.data
         }
         return data
@@ -77,33 +80,35 @@ const SubjectEdit: FC<IEdit> = props => {
       width={1340}>
       <ProForm.Group size={5}>
         <Item label='分类' name='cid' required={false} rules={[{ required: true }]}>
-          <Cascader options={cate} placeholder='分类' style={{ width: 120 }} />
+          <Cascader options={cate} placeholder='分类' style={{ width: 150 }} />
         </Item>
-        <ProFormDatePicker fieldProps={{ picker: 'year', format: 'YYYY' }} name='year' placeholder='年份' width={90} />
-        <ProFormDatePicker fieldProps={{ format: 'YYYY-MM-DD' }} name='time' placeholder='发布时间' width={130} />
-        <ProFormSelect name='status' placeholder='状态' valueEnum={statusType} width={90} />
+        <ProFormSelect name='bid' placeholder='品牌' valueEnum={brand} width={150} />
+        <ProFormDatePicker fieldProps={{ format: 'YYYY-MM-DD' }} name='time' placeholder='发布时间' width={150} />
+        <ProFormSelect name='status' placeholder='状态' valueEnum={statusType} width={120} />
         <ProFormSwitch label='是否发布' name='is_publish' />
       </ProForm.Group>
-      <ProForm.Group size={5}>
-        <ProFormText
-          fieldProps={{
-            onBlur: async e => {
-              const name = e.target.value
-              if (name) {
-                const result = await productName({ name, id: editData?.id })
-                if (result.data)
-                  return message.warning('名称已存在')
-              }
+      <ProFormText
+        fieldProps={{
+          onBlur: async e => {
+            const name = e.target.value
+            if (name) {
+              const result = await spuName({ name, id: editData?.id })
+              if (result.data)
+                return message.warning('名称已存在')
             }
-          }}
-          label='名称'
-          name='name'
-          placeholder='名称'
-          required={false}
-          rules={[{ required: true }]}
-          width='lg' />
-        <ProFormText label='官网' name='website' placeholder='官网' width='lg' />
-      </ProForm.Group>
+          }
+        }}
+        label='名称'
+        name='name'
+        placeholder='名称'
+        required={false}
+        rules={[{ required: true }]} />
+      <Item label='标签' name='tag'>
+        <TagList name='标签' />
+      </Item>
+      <Item label='图片' name='cover'>
+        <Upload />
+      </Item>
       <ProFormTextArea fieldProps={{ rows: 6 }} label='描述' name='desc' placeholder='描述' />
       <ProFormTextArea fieldProps={{ rows: 6 }} label='简介' name='content' placeholder='简介' />
       <ProFormSwitch label='是否显示更多' name='isShowMore' />
